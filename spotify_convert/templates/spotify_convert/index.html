@@ -10,7 +10,7 @@
         <input type="file" id="file_input"/>
         <p id="status">Please select a file</p>
         <img id="preview" src="/static/default.png" />
-
+        {% csrf_token %}
         <form method="POST" action="/spotify_convert/submit_form/">
           <input type="hidden" id="spotify-code" name="spotify-code" value={{ code }}>
           <input type="hidden" id="avatar-url" name="avatar-url" value="/static/default.png">
