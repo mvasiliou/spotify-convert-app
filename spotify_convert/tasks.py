@@ -20,9 +20,10 @@ def go(library_url, code):
     token, refresh = get_token(code, callback, sp_client_id, sp_client_secret)
 
     tree = load_tree(library_url)
-    #tracks = find_track_info(tree)
+    tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
-    #match_apple_to_spotify(tracks, sp)
+    match_apple_to_spotify(tracks, sp)
+    return True
 
 
 def get_token(code, callback, client_id, client_secret):
@@ -55,7 +56,6 @@ def load_tree(filekey):
     out_file = "library.xml"
     s3.download_file(bucket_name, key, out_file)
     print(key)
-    #open(out_file, 'r')
     tree = ET.parse(out_file)
     root = tree.getroot()[0]
     tracks = root.find('dict').findall('dict')
