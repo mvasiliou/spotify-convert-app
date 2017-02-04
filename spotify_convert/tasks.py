@@ -43,10 +43,12 @@ def load_tree(library_url):
     access_key = os.environ.get('AWS_ACCESS_KEY_ID')
     secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-    s3 = boto3.Session(
+    session = boto3.Session(
             aws_access_key_id = access_key,
             aws_secret_access_key = secret_key,
     )
+
+    s3 = boto3.resource('s3')
     mybucket = s3.Bucket('spotify-convert')
     #tree = ET.parse(file)
     #root = tree.getroot()[0]
