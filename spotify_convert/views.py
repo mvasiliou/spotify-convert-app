@@ -15,7 +15,7 @@ def index(request):
     client_id = "fe7c45192a2944efb2141ef65cd40dbe"
     client_secret = "d1e8f5deb9af4ebf91b48c4c671d7203"
     if settings.PRODUCTION:
-        callback = "shrouded-bastion-15188.herokuapp.com%2Fspotify_convert%2F"
+        callback = "https%3A%2F%2Fshrouded-bastion-15188.herokuapp.com%2Fspotify_convert%2F"
     else:
         callback = "http%3A%2F%2F127.0.0.1%3A8000%2Fspotify_convert%2F"
     spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + "&response_type=code&redirect_uri=" + \
