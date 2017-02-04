@@ -39,7 +39,7 @@ def get_token(code, callback, client_id, client_secret):
     return token, refresh
 
 
-def load_tree(library_url):
+def load_tree(filekey):
     access_key = os.environ.get('AWS_ACCESS_KEY_ID')
     secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
@@ -51,8 +51,8 @@ def load_tree(library_url):
     s3 = session.resource('s3')
     mybucket = s3.Bucket('spotify-convert')
     print(mybucket.name)
-    for object in mybucket.objects.all():
-        print(object.key)
+    print(filekey)
+    s3.download_file("spotify-convert", filekey, "library.xml")
     #tree = ET.parse(file)
     #root = tree.getroot()[0]
     #tracks = root.find('dict').findall('dict')
