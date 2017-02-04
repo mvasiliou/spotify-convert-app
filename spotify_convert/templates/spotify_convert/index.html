@@ -1,0 +1,19 @@
+{% extends 'spotify_convert/base.html' %}
+{% block style_block %}
+    {% load staticfiles %}
+    <link href="{% static 'spotify_convert/css/carousel.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title_block %}Home{% endblock %}
+{% block body_block %}
+    <a class = "btn btn-success" href={{ spotify_url }}>Login to Spotify</a>
+    {% if code %}
+    <form class = 'col-sm-offset-1 col-sm-10 form-group' id="tw-form" method="post" action="/spotify_convert/?code={{ code }}"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ file_form }}
+        {{ file_form.errors }}
+        {{ file_form.non_field_errors }}
+        <br>
+        <input class = 'btn btn-primary' type="submit" value="Submit" />
+    </form>
+    {% endif %}
+{% endblock %}

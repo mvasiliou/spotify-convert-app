@@ -1,0 +1,22 @@
+{% extends 'spotify_convert/base.html' %}
+{% block title_block %}Register{% endblock %}
+{% block body_block %}
+    <div class='container jumbotron'>
+        <div class='sign-in row col-sm-offset-3 col-sm-5'>    
+            {% if registered %}
+            Digital Data says: <strong>thank you for registering!</strong>
+            <a href="/social">Return to the homepage.</a><br />
+            {% else %}
+            <h2>Register with Digital Data</h2>
+            <p>Sign up here for the Digital Data!</p>
+            <form id="user_form" method="post" action="/social/register/"
+                    enctype="multipart/form-data" class = 'form-group'>
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{profile_form.as_p}}
+                <input type="submit" name="submit" value="Register" class ='btn btn-success' />
+            </form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
