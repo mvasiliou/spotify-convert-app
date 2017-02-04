@@ -7,9 +7,8 @@ from Music.celery import app
 
 
 @app.task
-def go(data, token):
-    path = data['file']
-    tree = load_tree(path)
+def go(path, token):
+    tree = load_tree(open(path))
     tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
     match_apple_to_spotify(tracks, sp)

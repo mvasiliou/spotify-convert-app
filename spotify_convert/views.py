@@ -7,6 +7,8 @@ from .forms import UploadFileForm
 from spotify_convert.tasks import go
 import requests
 from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+
 
 
 # Create your views here.
@@ -25,7 +27,12 @@ def index(request):
         if form.is_valid():
             print('Got File!')
             token, refresh = get_token(code, callback, client_id, client_secret)
-            go.delay(form.cleaned_data, token)
+            library = form.cleaned_data['file']
+            fs = FileSystemStorage()
+            filename = fs.save(library.name, library)
+            uploaded_file_url = fs.url(filename)
+
+            go.delay(uploaded_file_url, token)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
