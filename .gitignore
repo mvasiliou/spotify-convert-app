@@ -1,6 +1,7 @@
 /Music/local_settings.py
 db.sqlite3
 celerybeat-schedule.db
+.idea
 
 
 # Windows image file caches

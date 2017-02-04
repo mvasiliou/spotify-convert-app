@@ -31,6 +31,7 @@ def index(request):
             fs = FileSystemStorage()
             filename = fs.save(library.name, library)
             uploaded_file_url = fs.url(filename)
+            print(uploaded_file_url)
 
             #go.delay(uploaded_file_url, token)
             return HttpResponseRedirect('/spotify_convert/')
