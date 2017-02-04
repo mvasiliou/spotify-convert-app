@@ -11,7 +11,7 @@
         <p id="status">Please select a file</p>
         <img id="preview" src="/static/default.png" />
 
-        <form method="POST" action="/submit_form/">
+        <form method="POST" action="/spotify_convert/submit_form/">
           <input type="hidden" id="spotify-code" name="spotify-code" value={{ code }}>
           <input type="hidden" id="avatar-url" name="avatar-url" value="/static/default.png">
           <input type="submit" value="Update profile">
@@ -42,7 +42,7 @@
 
     function getSignedRequest(file){
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "/sign_s3?file_name="+file.name+"&file_type="+file.type);
+      xhr.open("GET", "/spotify_convert/sign_s3?file_name="+file.name+"&file_type="+file.type);
       xhr.onreadystatechange = function(){
         if(xhr.readyState === 4){
           if(xhr.status === 200){
