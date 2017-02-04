@@ -4,6 +4,7 @@ import spotipy
 import spotipy.util as util
 import xml.etree.ElementTree as ET
 
+@app.task
 def go(path, token):
     tree = load_tree(path)
     tracks = find_track_info(tree)

@@ -14,19 +14,19 @@ import base64
 def index(request):
     client_id = "fe7c45192a2944efb2141ef65cd40dbe"
     client_secret = "d1e8f5deb9af4ebf91b48c4c671d7203"
-    if settings.PRODUCTION:
-        callback = "https%3A%2F%2Fshrouded-bastion-15188.herokuapp.com%2Fspotify_convert%2F"
-    else:
-        callback = "http%3A%2F%2F127.0.0.1%3A8000%2Fspotify_convert%2F"
-    spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + "&response_type=code&redirect_uri=" + \
-          callback + "&scope=user-library-modify+user-library-read"
+
+    callback = get_callback()
+    spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
+                  "&response_type=code&redirect_uri=" + \
+                  callback + "&scope=user-library-modify+user-library-read"
+
     if request.method == 'POST':
         code = request.GET["code"]
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             print('Got File!')
             token, refresh = get_token(code, callback, client_id, client_secret)
-            go(form.cleaned_data['file'], token)
+            go.delay(form.cleaned_data['file'], token)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
@@ -38,6 +38,14 @@ def index(request):
             return render(request, 'spotify_convert/index.html', {'file_form':form, 'spotify_url': spotify_url,'code':code})
     return render(request, 'spotify_convert/index.html', {'file_form':form, 'spotify_url':spotify_url})
 
+
+def get_callback():
+    if settings.PRODUCTION:
+        callback = "https%3A%2F%2Fshrouded-bastion-15188.herokuapp.com%2Fspotify_convert%2F"
+    else:
+        callback = "http%3A%2F%2F127.0.0.1%3A8000%2Fspotify_convert%2F"
+
+    return callback
 
 def get_token(code, callback, client_id, client_secret):
     params = {'grant_type':'authorization_code', 'code':code, 'redirect_uri':callback}
