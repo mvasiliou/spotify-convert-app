@@ -51,9 +51,9 @@ def submit_form(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST)
         if form.is_valid():
-            library = form.cleaned_data['avatar_url']
+            library_url = form.cleaned_data['avatar_url']
             spotify_code = form.cleaned_data['spotify_code']
-            go.delay(library, spotify_code)
+            go.delay(library_url, spotify_code)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')

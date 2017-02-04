@@ -10,13 +10,13 @@ import requests, os
 import spotify_convert.helper as helper
 
 @app.task
-def go(filename, code):
+def go(library_url, code):
     client_id = os.environ.get('CLIENT_ID')
     client_secret = os.environ.get('CLIENT_SECRET')
     callback = helper.get_callback()
     token, refresh = get_token(code, callback, client_id, client_secret)
 
-    #tree = load_tree(file)
+    tree = load_tree(library_url)
     #tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
     #match_apple_to_spotify(tracks, sp)
@@ -36,8 +36,9 @@ def get_token(code, callback, client_id, client_secret):
     return token, refresh
 
 
-def load_tree(path):
-    tree = ET.parse(path)
+def load_tree(library_url):
+    file = requests.get(library_url)
+    tree = ET.parse(file)
     root = tree.getroot()[0]
     tracks = root.find('dict').findall('dict')
     return tracks
