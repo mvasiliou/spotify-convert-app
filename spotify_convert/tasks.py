@@ -10,12 +10,12 @@ from django.conf import settings
 
 @app.task
 def go(path, token):
-    fs = FileSystemStorage()
-    file = fs.open(settings.BASE_DIR + path)
-    tree = load_tree(file)
-    tracks = find_track_info(tree)
+    #fs = FileSystemStorage()
+    #file = fs.open(settings.BASE_DIR + path)
+    #tree = load_tree(file)
+    #tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
-    match_apple_to_spotify(tracks, sp)
+    #match_apple_to_spotify(tracks, sp)
 
 
 def load_tree(path):
