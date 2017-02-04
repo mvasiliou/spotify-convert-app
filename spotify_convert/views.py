@@ -31,7 +31,7 @@ def index(request):
             filename = fs.save(library.name, library)
             uploaded_file_url = fs.url(filename)
             print(uploaded_file_url)
-            go.delay(uploaded_file_url, code)
+            #go.delay(uploaded_file_url, code)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
