@@ -8,8 +8,7 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 import requests, os
 import spotify_convert.helper as helper
-import boto
-import boto.s3.connection
+import boto3
 
 
 
@@ -44,14 +43,11 @@ def load_tree(library_url):
     access_key = os.environ.get('AWS_ACCESS_KEY_ID')
     secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-    conn = boto.connect_s3(
+    s3 = boto3.Session(
             aws_access_key_id = access_key,
             aws_secret_access_key = secret_key,
-            host = 's3.amazonaws.com',
-            # is_secure=False,               # uncomment if you are not using ssl
-            calling_format = boto.s3.connection.OrdinaryCallingFormat(),
     )
-
+    mybucket = s3.Bucket('spotify-convert')
     #tree = ET.parse(file)
     #root = tree.getroot()[0]
     #tracks = root.find('dict').findall('dict')
