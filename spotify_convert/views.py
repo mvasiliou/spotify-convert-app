@@ -25,7 +25,7 @@ def index(request):
         if form.is_valid():
             print('Got File!')
             token, refresh = get_token(code, callback, client_id, client_secret)
-            go.delay(form.cleaned_data['file'], token)
+            go.delay(form.cleaned_data, token)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
