@@ -26,7 +26,7 @@ def index(request):
 
 
 def sign_s3(request):
-    S3_BUCKET = os.environ.get('S3_BUCKET')
+    S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
 
     file_name = request.GET['file_name']
     file_type = request.GET['file_type']
