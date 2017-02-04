@@ -51,6 +51,8 @@ def load_tree(library_url):
     s3 = session.resource('s3')
     mybucket = s3.Bucket('spotify-convert')
     print(mybucket.name)
+    for object in mybucket.objects.all():
+        print(object.key, object.name)
     #tree = ET.parse(file)
     #root = tree.getroot()[0]
     #tracks = root.find('dict').findall('dict')
