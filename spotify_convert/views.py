@@ -19,10 +19,12 @@ def index(request):
     spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
                   "&response_type=code&redirect_uri=" + \
                   callback + "&scope=user-library-modify+user-library-read"
-    file_form = UploadFileForm()
-    context = {'spotify_url':spotify_url, 'file_form': file_form}
+    context = {'spotify_url':spotify_url}
+
     if "code" in request.GET:
-        context['code'] = request.GET["code"]
+        code = request.GET["code"]
+        file_form = UploadFileForm(initial = {'spotify_code':code})
+        context['file_form'] = file_form
     return render(request, 'spotify_convert/index.html', context)
 
 
