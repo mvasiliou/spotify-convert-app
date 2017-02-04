@@ -29,7 +29,7 @@ SECRET_KEY = 'v_^@9_z$$!8r%@ab$@!=%ap*j6*)ql_r(+g8sem*#9a8$-k==f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shrouded-bastion-15188.herokuapp.com']
+ALLOWED_HOSTS = ['shrouded-bastion-15188.herokuapp.com','127.0.0.1']
 
 # Application definition
 

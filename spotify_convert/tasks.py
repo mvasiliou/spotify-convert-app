@@ -5,13 +5,13 @@ import spotipy.util as util
 import xml.etree.ElementTree as ET
 from Music.celery import app
 from django.core.files.storage import FileSystemStorage
-
+from django.conf import settings
 
 
 @app.task
 def go(path, token):
     fs = FileSystemStorage()
-    file = fs.open(path)
+    file = fs.open(settings.BASE_DIR + path)
     tree = load_tree(file)
     tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
