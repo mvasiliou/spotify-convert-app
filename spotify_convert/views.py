@@ -17,7 +17,6 @@ def index(request):
     if settings.PRODUCTION:
         callback = "shrouded-bastion-15188.herokuapp.com%2Fspotify_convert%2F"
     else:
-        print(settings.PRODUCTION)
         callback = "http%3A%2F%2F127.0.0.1%3A8000%2Fspotify_convert%2F"
     spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + "&response_type=code&redirect_uri=" + \
           callback + "&scope=user-library-modify+user-library-read"
