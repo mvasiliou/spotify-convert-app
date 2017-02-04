@@ -27,11 +27,11 @@ def index(request):
         if form.is_valid():
             print('Got File!')
             library = form.cleaned_data['file']
-            #fs = FileSystemStorage()
-            #filename = fs.save(library.name, library)
-            #uploaded_file_url = fs.url(filename)
-            #print(uploaded_file_url)
-            #go.delay(uploaded_file_url, code)
+            fs = FileSystemStorage()
+            filename = fs.save(library.name, library)
+            uploaded_file_url = fs.url(filename)
+            print(uploaded_file_url)
+            go.delay(uploaded_file_url, code)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
