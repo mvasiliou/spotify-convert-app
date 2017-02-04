@@ -48,7 +48,7 @@ def load_tree(library_url):
             aws_secret_access_key = secret_key,
     )
 
-    s3 = boto3.resource('s3')
+    s3 = session.resource('s3')
     mybucket = s3.Bucket('spotify-convert')
     print(mybucket.name)
     #tree = ET.parse(file)
