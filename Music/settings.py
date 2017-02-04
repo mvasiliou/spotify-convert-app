@@ -127,10 +127,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-DAYS_AGO = 1
+PRODUCTION = True
 
 try:
     from .local_settings import *
+    PRODUCTION = False
 
 except ImportError as exception:
     print(exception, exception.args)

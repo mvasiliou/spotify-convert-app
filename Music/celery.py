@@ -10,7 +10,7 @@ try:
     app.conf.update(BROKER_URL=os.environ['REDIS_URL'],
                     CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 except:
-    app = Celery('MassContact',
+    app = Celery('Music',
                  broker = 'amqp://',
                  backend = 'amqp://',
                  include = ['Music.tasks', 'spotify_convert.tasks'])
