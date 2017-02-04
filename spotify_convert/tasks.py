@@ -4,11 +4,15 @@ import spotipy
 import spotipy.util as util
 import xml.etree.ElementTree as ET
 from Music.celery import app
+from django.core.files.storage import FileSystemStorage
+
 
 
 @app.task
 def go(path, token):
-    tree = load_tree(open(path))
+    fs = FileSystemStorage()
+    file = fs.open(path)
+    tree = load_tree(file)
     tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
     match_apple_to_spotify(tracks, sp)
