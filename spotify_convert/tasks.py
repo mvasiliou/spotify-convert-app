@@ -11,12 +11,12 @@ from django.conf import settings
 @app.task
 def go(path, code, callback, client_id, client_secret):
     token, refresh = get_token(code, callback, client_id, client_secret)
-    #fs = FileSystemStorage()
-    #file = fs.open(settings.BASE_DIR + path)
-    #tree = load_tree(file)
-    #tracks = find_track_info(tree)
+    fs = FileSystemStorage()
+    file = fs.open(settings.BASE_DIR + path)
+    tree = load_tree(file)
+    tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
-    #match_apple_to_spotify(tracks, sp)
+    match_apple_to_spotify(tracks, sp)
 
 
 def get_token(code, callback, client_id, client_secret):
