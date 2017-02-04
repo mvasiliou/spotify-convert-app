@@ -6,18 +6,20 @@ import xml.etree.ElementTree as ET
 from Music.celery import app
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
-import requests
-
+import requests, os
+import spotify_convert.helper as helper
 
 @app.task
-def go(filename, code, callback, client_id, client_secret):
+def go(filename, code):
+    client_id = os.environ.get('CLIENT_ID')
+    client_secret = os.environ.get('CLIENT_SECRET')
+    callback = helper.get_callback()
     token, refresh = get_token(code, callback, client_id, client_secret)
-    fs = FileSystemStorage()
-    file = fs.open(filename)
-    tree = load_tree(file)
-    tracks = find_track_info(tree)
+
+    #tree = load_tree(file)
+    #tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
-    match_apple_to_spotify(tracks, sp)
+    #match_apple_to_spotify(tracks, sp)
 
 
 def get_token(code, callback, client_id, client_secret):
