@@ -54,8 +54,8 @@ def load_tree(filekey):
     bucket_name = "spotify-convert"
     key = filekey.split("/")[-1]
     out_file = "library.xml"
-    s3.download_file(bucket_name, key, out_file)
     print(key)
+    s3.download_file(bucket_name, key, out_file)
     tree = ET.parse(out_file)
     root = tree.getroot()[0]
     tracks = root.find('dict').findall('dict')
