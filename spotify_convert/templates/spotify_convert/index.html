@@ -12,6 +12,7 @@
         <img id="preview" src="/static/default.png" />
         {% csrf_token %}
         <form method="POST" action="/spotify_convert/submit_form/">
+            {% csrf_token %}
           <input type="hidden" id="spotify-code" name="spotify-code" value={{ code }}>
           <input type="hidden" id="avatar-url" name="avatar-url" value="/static/default.png">
           <input type="submit" value="Update profile">
