@@ -12,13 +12,14 @@
         <img id="preview" src="/static/default.png" />
         <form method="POST" action="/spotify_convert/submit_form/">
             {% csrf_token %}
-          <input type="hidden" id="spotify-code" name="spotify-code" value={{ code }}>
-          <input type="hidden" id="avatar-url" name="avatar-url" value="/static/default.png">
-          <input type="submit" value="Update profile">
+            {{ file_form }}
+          <!--<input type="hidden" id="spotify-code" name="spotify-code" value={{ code }}>
+          <input type="hidden" id="avatar-url" name="avatar-url" value="/static/default.png">-->
+          <input type="submit" value="Upload Library">
         </form>
     <!--
     <form class = 'col-sm-offset-1 col-sm-10 form-group' id="tw-form" method="post" action="/spotify_convert/?code={{ code }}"  enctype="multipart/form-data">
-        
+
         <br>
         <input class = 'btn btn-primary' type="submit" value="Submit" />
     </form>-->
