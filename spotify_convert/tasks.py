@@ -8,13 +8,17 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 import requests, os
 import spotify_convert.helper as helper
+import boto
+import boto.s3.connection
+
+
 
 @app.task
 def go(library_url, code):
-    client_id = os.environ.get('CLIENT_ID')
-    client_secret = os.environ.get('CLIENT_SECRET')
+    sp_client_id = os.environ.get('CLIENT_ID')
+    sp_client_secret = os.environ.get('CLIENT_SECRET')
     callback = helper.get_callback()
-    token, refresh = get_token(code, callback, client_id, client_secret)
+    token, refresh = get_token(code, callback, sp_client_id, sp_client_secret)
 
     tree = load_tree(library_url)
     #tracks = find_track_info(tree)
@@ -37,11 +41,21 @@ def get_token(code, callback, client_id, client_secret):
 
 
 def load_tree(library_url):
-    file = requests.get(library_url)
-    tree = ET.parse(file)
-    root = tree.getroot()[0]
-    tracks = root.find('dict').findall('dict')
-    return tracks
+    access_key = os.environ.get('AWS_ACCESS_KEY_ID')
+    secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+    conn = boto.connect_s3(
+            aws_access_key_id = access_key,
+            aws_secret_access_key = secret_key,
+            host = 's3.amazonaws.com',
+            # is_secure=False,               # uncomment if you are not using ssl
+            calling_format = boto.s3.connection.OrdinaryCallingFormat(),
+    )
+
+    #tree = ET.parse(file)
+    #root = tree.getroot()[0]
+    #tracks = root.find('dict').findall('dict')
+    #return tracks
 
 
 def find_track_info(tracks):
