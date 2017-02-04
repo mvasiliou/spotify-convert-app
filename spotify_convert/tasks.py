@@ -13,6 +13,7 @@ import requests
 def go(path, code, callback, client_id, client_secret):
     token, refresh = get_token(code, callback, client_id, client_secret)
     fs = FileSystemStorage()
+    path = path.split('/')[2]
     file = fs.open(path)
     tree = load_tree(file)
     tracks = find_track_info(tree)
