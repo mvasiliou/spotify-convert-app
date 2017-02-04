@@ -7,7 +7,7 @@ from .forms import UploadFileForm
 from spotify_convert.tasks import go
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-
+import json, boto3, os
 
 
 # Create your views here.
@@ -19,28 +19,54 @@ def index(request):
     spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
                   "&response_type=code&redirect_uri=" + \
                   callback + "&scope=user-library-modify+user-library-read"
+    context = {'spotify_url':spotify_url}
+    if "code" in request.GET:
+        context['code'] = request.GET["code"]
+    return render(request, 'spotify_convert/index.html', context)
 
+
+def sign_s3(request):
+    S3_BUCKET = os.environ.get('S3_BUCKET')
+
+    file_name = request.GET['file_name']
+    file_type = request.GET['file_type']
+
+    s3 = boto3.client('s3')
+
+    presigned_post = s3.generate_presigned_post(
+        Bucket = S3_BUCKET,
+        Key = file_name,
+        Fields = {"acl": "public-read", "Content-Type": file_type},
+        Conditions = [
+            {"acl": "public-read"},
+            {"Content-Type": file_type}
+        ],
+        ExpiresIn = 3600
+    )
+
+    return json.dumps({
+        'data': presigned_post,
+        'url': 'https://%s.s3.amazonaws.com/%s' % (S3_BUCKET, file_name)
+    })
+
+
+def submit_form(request):
     if request.method == 'POST':
-        code = request.GET["code"]
-        form = UploadFileForm(request.POST, request.FILES)
+        form = UploadFileForm(request.POST)
         if form.is_valid():
-            print('Got File!')
-            library = form.cleaned_data['file']
-            fs = FileSystemStorage()
-            filename = fs.save(library.name, library)
-            uploaded_file_url = fs.url(filename)
-            print(filename)
-            go.delay(filename, code, callback, client_id, client_secret)
+            library = form.cleaned_data['avatar_url']
+            spotify_code = form.cleaned_data['spotify_code']
+            print(library)
+            print(spotify_code)
+            #go.delay(filename, code, callback, client_id, client_secret)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
             print(form.errors)
     else:
         form = UploadFileForm()
-        if "code" in request.GET:
-            code = request.GET["code"]
-            return render(request, 'spotify_convert/index.html', {'file_form':form, 'spotify_url': spotify_url,'code':code})
-    return render(request, 'spotify_convert/index.html', {'file_form':form, 'spotify_url':spotify_url})
+    return HttpResponseRedirect('/spotify_convert/')
+
 
 
 def get_callback():

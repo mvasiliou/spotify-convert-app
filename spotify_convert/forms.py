@@ -2,4 +2,5 @@ from django import forms
 
 
 class UploadFileForm(forms.Form):
-    file = forms.FileField()
+    spotify_code = forms.CharField()
+    avatar_url = forms.CharField()
