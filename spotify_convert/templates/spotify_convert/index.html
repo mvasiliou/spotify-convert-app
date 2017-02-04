@@ -6,7 +6,7 @@
 {% block title_block %}Home{% endblock %}
 {% block body_block %}
     <a class = "btn btn-success" href={{ spotify_url }}>Login to Spotify</a>
-    {% if code %}
+    {% if file_form %}
         <input type="file" id="file_input"/>
         <p id="status">Please select a file</p>
         <img id="preview" src="/static/default.png" />
