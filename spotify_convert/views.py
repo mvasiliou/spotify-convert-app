@@ -36,7 +36,7 @@ def sign_s3(request):
         Key = file_name,
         Fields = {"acl": "public-read", "Content-Type": file_type},
         Conditions = [
-            {"acl": "public-read"},
+            {"acl": "private"},
             {"Content-Type": file_type}
         ],
         ExpiresIn = 3600
