@@ -55,11 +55,11 @@ def load_tree(filekey):
     out_file = "library.xml"
     s3.download_file(bucket_name, key, out_file)
     print(key)
-    open(out_file, 'r')
-    #tree = ET.parse(file)
-    #root = tree.getroot()[0]
-    #tracks = root.find('dict').findall('dict')
-    #return tracks
+    #open(out_file, 'r')
+    tree = ET.parse(out_file)
+    root = tree.getroot()[0]
+    tracks = root.find('dict').findall('dict')
+    return tracks
 
 
 def find_track_info(tracks):
