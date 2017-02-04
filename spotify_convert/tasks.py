@@ -3,6 +3,8 @@ import csv
 import spotipy
 import spotipy.util as util
 import xml.etree.ElementTree as ET
+from Music.celery import app
+
 
 @app.task
 def go(path, token):

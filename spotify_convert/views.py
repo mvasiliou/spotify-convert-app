@@ -7,8 +7,7 @@ from .forms import UploadFileForm
 from spotify_convert.tasks import go
 import requests
 from django.conf import settings
-from pprint import pprint
-import base64
+
 
 # Create your views here.
 def index(request):
