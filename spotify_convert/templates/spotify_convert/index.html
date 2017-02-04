@@ -10,7 +10,6 @@
         <input type="file" id="file_input"/>
         <p id="status">Please select a file</p>
         <img id="preview" src="/static/default.png" />
-        {% csrf_token %}
         <form method="POST" action="/spotify_convert/submit_form/">
             {% csrf_token %}
           <input type="hidden" id="spotify-code" name="spotify-code" value={{ code }}>
@@ -19,10 +18,7 @@
         </form>
     <!--
     <form class = 'col-sm-offset-1 col-sm-10 form-group' id="tw-form" method="post" action="/spotify_convert/?code={{ code }}"  enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ file_form }}
-        {{ file_form.errors }}
-        {{ file_form.non_field_errors }}
+        
         <br>
         <input class = 'btn btn-primary' type="submit" value="Submit" />
     </form>-->
