@@ -26,14 +26,12 @@ def index(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             print('Got File!')
-            token, refresh = get_token(code, callback, client_id, client_secret)
             library = form.cleaned_data['file']
             fs = FileSystemStorage()
             filename = fs.save(library.name, library)
             uploaded_file_url = fs.url(filename)
             print(uploaded_file_url)
-
-            go.delay(uploaded_file_url, token)
+            go.delay(uploaded_file_url, code)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
@@ -53,19 +51,6 @@ def get_callback():
         callback = "http%3A%2F%2F127.0.0.1%3A8000%2Fspotify_convert%2F"
 
     return callback
-
-def get_token(code, callback, client_id, client_secret):
-    params = {'grant_type':'authorization_code', 'code':code, 'redirect_uri':callback}
-
-    req = requests.post(
-            'https://accounts.spotify.com/api/token',
-            data = params,
-            auth = (client_id, client_secret)
-        )
-    data = req.json()
-    token = data['access_token']
-    refresh = data['refresh_token']
-    return token, refresh
 
 def user_login(request):
     context = RequestContext(request)
