@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 from Music.celery import app
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+import requests
 
 
 @app.task

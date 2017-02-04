@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import UploadFileForm
 from spotify_convert.tasks import go
-import requests
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
