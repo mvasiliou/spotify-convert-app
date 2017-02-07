@@ -95,27 +95,30 @@ def match_apple_to_spotify(tracks, sp):
     spotify = spotipy.Spotify()
 
     for song in tracks:
-        if 'Artist' in song and 'Name' in song:
-            apple_name = song['Name'].lower()
-            apple_artist = song['Artist'].lower()
+        try:
+            if 'Artist' in song and 'Name' in song:
+                apple_name = song['Name'].lower()
+                apple_artist = song['Artist'].lower()
 
-            results = spotify.search(q = 'track:' + apple_name + ' ' + apple_artist, type = 'track')
-            results = results['tracks']['items']
+                results = spotify.search(q = 'track:' + apple_name + ' ' + apple_artist, type = 'track')
+                results = results['tracks']['items']
 
-            for item in results:
+                for item in results:
 
-                spot_name = item['name'].lower()
-                track_id = item['id']
+                    spot_name = item['name'].lower()
+                    track_id = item['id']
 
-                spot_artists = [artist['name'].lower() for artist in item['artists']]
+                    spot_artists = [artist['name'].lower() for artist in item['artists']]
 
-                if (
-                            apple_name == spot_name or apple_name in spot_name or spot_name in apple_name) and \
-                                apple_artist in spot_artists:
-                    add_track(track_id, apple_name, apple_artist, sp)
-                    break
-                if item == results[-1]:
-                    no_match(apple_name, apple_artist)
+                    if (apple_name == spot_name or apple_name in spot_name or spot_name in apple_name) and \
+                        apple_artist in spot_artists:
+                        
+                        add_track(track_id, apple_name, apple_artist, sp)
+                        break
+                    if item == results[-1]:
+                        no_match(apple_name, apple_artist)
+        except:
+            no_match(apple_name, apple_artist)
 
 
 def add_track(track_id, name, artist, sp):
