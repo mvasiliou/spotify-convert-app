@@ -22,10 +22,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spotify_convert/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="-170">
               <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -76,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="upload.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spotify_convert/static/spotify_convert/js/upload.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+            <state relative-caret-position="232">
+              <caret line="45" column="62" lean-forward="false" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
               </folding>
@@ -179,8 +179,8 @@
         <option value="$PROJECT_DIR$/spotify_convert/templates/spotify_convert/base.html" />
         <option value="$PROJECT_DIR$/spotify_convert/forms.py" />
         <option value="$PROJECT_DIR$/spotify_convert/templates/spotify_convert/index.html" />
-        <option value="$PROJECT_DIR$/spotify_convert/static/spotify_convert/js/upload.js" />
         <option value="$PROJECT_DIR$/spotify_convert/views.py" />
+        <option value="$PROJECT_DIR$/spotify_convert/static/spotify_convert/js/upload.js" />
       </list>
     </option>
   </component>
@@ -1098,22 +1098,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spotify_convert/static/spotify_convert/js/upload.js">
+    <entry file="file://$PROJECT_DIR$/spotify_convert/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <state relative-caret-position="-170">
+          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
           <folding>
-            <element signature="e#0#48#0" expanded="false" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spotify_convert/views.py">
+    <entry file="file://$PROJECT_DIR$/spotify_convert/static/spotify_convert/js/upload.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="58" column="20" lean-forward="false" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        <state relative-caret-position="232">
+          <caret line="45" column="62" lean-forward="false" selection-start-line="45" selection-start-column="62" selection-end-line="45" selection-end-column="62" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
