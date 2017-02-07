@@ -112,12 +112,13 @@ def match_apple_to_spotify(tracks, sp):
 
                     if (apple_name == spot_name or apple_name in spot_name or spot_name in apple_name) and \
                         apple_artist in spot_artists:
-                        
+
                         add_track(track_id, apple_name, apple_artist, sp)
                         break
                     if item == results[-1]:
                         no_match(apple_name, apple_artist)
-        except:
+        except Exception as e:
+            print(e, e.args)
             no_match(apple_name, apple_artist)
 
 
@@ -129,6 +130,7 @@ def add_track(track_id, name, artist, sp):
 
 
 def no_match(name, artist):
-    no_match_file = open('no_match.csv', 'a', newline = '')
-    no_match_writer = csv.writer(no_match_file)
-    no_match_writer.writerow([name, artist])
+    print('No Match for: ' + name + ' by ' + artist)
+    #no_match_file = open('no_match.csv', 'a', newline = '')
+    #no_match_writer = csv.writer(no_match_file)
+    #no_match_writer.writerow([name, artist])
