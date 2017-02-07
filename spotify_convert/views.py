@@ -7,10 +7,13 @@ from .forms import UploadFileForm
 from spotify_convert.tasks import go
 import json, boto3, os
 import spotify_convert.helper as helper
+from django.conf import settings
 
 # Create your views here.
 def index(request):
     client_id = os.environ.get('CLIENT_ID')
+    if not settings.PRODUCTION:
+        client_id = settings.CLIENT_ID
     callback = helper.get_callback()
     spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
                   "&response_type=code&redirect_uri=" + \
@@ -51,7 +54,7 @@ def submit_form(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST)
         if form.is_valid():
-            library_url = form.cleaned_data['avatar_url']
+            library_url = form.cleaned_data['file_url']
             spotify_code = form.cleaned_data['spotify_code']
             go.delay(library_url, spotify_code)
             return HttpResponseRedirect('/spotify_convert/')
