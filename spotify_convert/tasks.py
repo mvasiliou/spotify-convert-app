@@ -84,23 +84,17 @@ def spotify_login():
         return None
 
 
-def print_spotify_tracks():
-    results = sp.current_user_saved_tracks()
-    for item in results['items']:
-        track = item['track']
-        print(track['name'] + ' - ' + track['artists'][0]['name'])
-
-
 def match_apple_to_spotify(tracks, sp):
-    spotify = spotipy.Spotify()
 
     for song in tracks:
-        try:
-            if 'Artist' in song and 'Name' in song:
-                apple_name = song['Name'].lower()
-                apple_artist = song['Artist'].lower()
+        if 'Artist' in song and 'Name' in song:
+            apple_name = song['Name'].lower()
+            apple_artist = song['Artist'].lower()
 
-                results = spotify.search(q = 'track:' + apple_name + ' ' + apple_artist, type = 'track')
+            match_name = apple_name.lower().split('(')[0]
+            match_artist = apple_artist.lower()
+            try:
+                results = sp.search(q = 'track:' + apple_name + ' ' + apple_name, type = 'track')
                 results = results['tracks']['items']
 
                 for item in results:
@@ -110,27 +104,30 @@ def match_apple_to_spotify(tracks, sp):
 
                     spot_artists = [artist['name'].lower() for artist in item['artists']]
 
-                    if (apple_name == spot_name or apple_name in spot_name or spot_name in apple_name) and \
-                        apple_artist in spot_artists:
+                    if (apple_name == spot_name or match_name == spot_name or match_name in spot_name or spot_name in apple_name) and \
+                        match_artist in spot_artists:
 
                         add_track(track_id, apple_name, apple_artist, sp)
                         break
                     if item == results[-1]:
-                        no_match(apple_name, apple_artist)
-        except Exception as e:
-            print(e, e.args)
-            no_match(apple_name, apple_artist)
+                        no_match(apple_name, apple_artist, match_name, match_artist)
+            except Exception as e:
+                print(e, e.args)
+                no_match(apple_name, apple_artist, match_name, match_artist)
 
 
 def add_track(track_id, name, artist, sp):
     check = sp.current_user_saved_tracks_contains(tracks = [track_id])[0]
-    if not check:
+    if check:
+        print("Track already in library: " + name.title() + ' by ' + artist.title())
+    else:
         sp.current_user_saved_tracks_add(tracks = [track_id])
-        print('Added track ' + name.title() + ' by ' + artist.title())
+        print('Added track: ' + name.title() + ' by ' + artist.title())
 
 
-def no_match(name, artist):
+def no_match(name, artist, match_name, match_artist):
     print('No Match for: ' + name + ' by ' + artist)
+    print('Attempted to match with: ' + match_name + ' by ' + match_artist)
     #no_match_file = open('no_match.csv', 'a', newline = '')
     #no_match_writer = csv.writer(no_match_file)
     #no_match_writer.writerow([name, artist])
