@@ -43,7 +43,7 @@ function uploadFile(file, s3Data, url){
     if(xhr.readyState === 4){
       if(xhr.status === 200 || xhr.status === 204){
         document.getElementById("file-url").value = url;
-        document.getElementById("submit-button").setAttribute('disabled', false);
+        document.getElementById("submit-button").removeAttribute('disabled');
       }
       else{
         console.log(xhr.responseText);
