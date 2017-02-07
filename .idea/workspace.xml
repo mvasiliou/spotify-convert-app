@@ -37,8 +37,8 @@
       <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spotify_convert/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
-              <caret line="106" column="50" lean-forward="false" selection-start-line="106" selection-start-column="50" selection-end-line="106" selection-end-column="50" />
+            <state relative-caret-position="68">
+              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -150,9 +150,10 @@
       <find>sign_s3</find>
       <find>submit</find>
       <find>avatar</find>
-      <find>avat</find>
       <find>sp</find>
       <find>sp.</find>
+      <find>spotify</find>
+      <find>avat</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1082,6 +1083,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spotify_convert/templates/spotify_convert/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spotify_convert/static/spotify_convert/js/upload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -1089,14 +1098,6 @@
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spotify_convert/templates/spotify_convert/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1112,8 +1113,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spotify_convert/tasks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="106" column="50" lean-forward="false" selection-start-line="106" selection-start-column="50" selection-end-line="106" selection-end-column="50" />
+        <state relative-caret-position="68">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>

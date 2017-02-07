@@ -87,12 +87,14 @@ def spotify_login():
 def match_apple_to_spotify(tracks, sp):
 
     for song in tracks:
-        if 'Artist' in song and 'Name' in song:
-            apple_name = song['Name'].lower()
-            apple_artist = song['Artist'].lower()
+        if 'Artist' in song and 'Name' in song and 'Podcast' not in song:
+            apple_name = song['Name']
+            apple_artist = song['Artist']
 
-            match_name = apple_name.lower().split('(')[0]
+
+            match_name = apple_name.lower()
             match_artist = apple_artist.lower()
+            match_name_split = match_name.split('(')[0]
             try:
                 results = sp.search(q = 'track:' + apple_name + ' ' + apple_name, type = 'track')
                 results = results['tracks']['items']
@@ -104,7 +106,11 @@ def match_apple_to_spotify(tracks, sp):
 
                     spot_artists = [artist['name'].lower() for artist in item['artists']]
 
-                    if (apple_name == spot_name or match_name == spot_name or match_name in spot_name or spot_name in apple_name) and \
+                    if (match_name == spot_name or
+                        match_name in spot_name or
+                        spot_name in match_name or
+                        match_name_split in spot_name or
+                        spot_name in match_name_split) and \
                         match_artist in spot_artists:
 
                         add_track(track_id, apple_name, apple_artist, sp)
