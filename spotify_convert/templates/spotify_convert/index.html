@@ -5,17 +5,19 @@
 {% endblock %}
 {% block title_block %}Home{% endblock %}
 {% block body_block %}
-    <p>Want to convert your iTunes library to Spotify? Login into your Spotify account and then upload your XML iTunes
+    <div class="row">
+    <p class="col-md-10 col-md-offset-1">Want to convert your iTunes library to Spotify? Login into your Spotify account and then upload your XML iTunes
         Library file! Depending on how many songs you have, this may take several minutes to half an hour. Feel free
         to close this tab and let us work in the background!</p>
+    </div>
     {% if file_form %}
         <div class ="row">
-        <div class='form-group col-md-2 col-lg-offset-5'>
+        <div class='form-group col-md-4 col-lg-offset-4'>
             <label for="file_input">Upload your iTunes XML file:</label>
             <input class='btn btn-default' type="file" id="file_input"/>
         </div>
         </div>
-        <div class = 'form-group col-md-2 col-md-offset-5'>
+        <div class = 'form-group col-md-4 col-md-offset-4'>
         <form method="POST" action="/spotify_convert/submit_form/">
             {% csrf_token %}
             {{ file_form }}
