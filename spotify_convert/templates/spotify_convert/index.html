@@ -21,7 +21,7 @@
         <form method="POST" action="/spotify_convert/submit_form/">
             {% csrf_token %}
             {{ file_form }}
-          <input class='btn btn-primary' id="submit-button" disabled type="submit" value="Upload Library">
+            <input class='btn btn-primary' id="submit-button" disabled type="submit" value="Upload Library">
         </form>
         </div>
     {% else %}

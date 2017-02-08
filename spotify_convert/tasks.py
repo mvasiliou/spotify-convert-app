@@ -85,7 +85,7 @@ def spotify_login():
 
 
 def match_apple_to_spotify(tracks, sp):
-
+    bad_list =[]
     for song in tracks:
         if 'Artist' in song and 'Name' in song and 'Podcast' not in song:
             apple_name = song['Name']
@@ -116,10 +116,11 @@ def match_apple_to_spotify(tracks, sp):
                         add_track(track_id, apple_name, apple_artist, sp)
                         break
                     if item == results[-1]:
-                        no_match(apple_name, apple_artist, match_name, match_artist)
+                        no_match(apple_name, apple_artist, match_name, match_artist, bad_list)
             except Exception as e:
                 print(e, e.args)
-                no_match(apple_name, apple_artist, match_name, match_artist)
+                no_match(apple_name, apple_artist, match_name, match_artist, bad_list)
+    print(bad_list)
 
 
 def add_track(track_id, name, artist, sp):
@@ -128,10 +129,11 @@ def add_track(track_id, name, artist, sp):
         pass
     else:
         sp.current_user_saved_tracks_add(tracks = [track_id])
-        print('Added track: ' + name.title() + ' by ' + artist.title())
+        #print('Added track: ' + name.title() + ' by ' + artist.title())
 
 
-def no_match(name, artist, match_name, match_artist):
+def no_match(name, artist, match_name, match_artist, bad_list = []):
+    bad_list.append((name, artist, match_name, match_artist))
     print('No Match for: ' + name + ' by ' + artist)
     print('Attempted to match with: ' + match_name + ' by ' + match_artist)
     #no_match_file = open('no_match.csv', 'a', newline = '')
