@@ -15,7 +15,7 @@ def go(library_url, code, email = False):
     tracks = find_track_info(tree)
     success, fails, errors = match_apple_to_spotify(tracks, sp, user)
     if email:
-        send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs. Totals Errors: ' + errors, email, "Tune Transfer", 'tunes@mikevasiliou.com')
+        send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs. Totals Errors: ' + str(errors), email, "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 
