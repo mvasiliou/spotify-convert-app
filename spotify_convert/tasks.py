@@ -6,7 +6,7 @@ import requests, os
 import spotify_convert.helper as helper
 import boto3
 from pprint import pprint
-from .models import Spotify_User, Added_Song, Missed_Song
+from spotify_convert.models import Spotify_User, Added_Song, Missed_Song
 
 @app.task
 def go(library_url, code, email = False):
