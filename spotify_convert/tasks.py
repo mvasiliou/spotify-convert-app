@@ -5,7 +5,6 @@ from Music.celery import app
 import requests, os
 import spotify_convert.helper as helper
 import boto3
-from pprint import pprint
 from spotify_convert.models import Spotify_User, Added_Song, Missed_Song
 
 @app.task
@@ -14,9 +13,9 @@ def go(library_url, code, email = False):
     user = add_user(sp)
     tree = load_tree(library_url)
     tracks = find_track_info(tree)
-    success, fails = match_apple_to_spotify(tracks, sp, user)
+    success, fails, errors = match_apple_to_spotify(tracks, sp, user)
     if email:
-        send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs.', email, "Tune Transfer", 'tunes@mikevasiliou.com')
+        send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs. Totals Errors: ' + errors, email, "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 
@@ -85,12 +84,13 @@ def find_track_info(tracks):
 def match_apple_to_spotify(tracks, sp, user):
     success = 0
     fails = 0
+    errors = 0
     for song in tracks:
-        match_song(sp, song, success, fails, user)
-    return success, fails
+        success,fails,errors = match_song(sp, song, success, fails, errors, user)
+    return success, fails, errors
 
 
-def match_song(sp, song, success, fails, user):
+def match_song(sp, song, success, fails, errors,user):
     if 'Artist' in song and 'Name' in song and 'Podcast' not in song:
         apple_name = song['Name']
         apple_artist = song['Artist']
@@ -118,14 +118,13 @@ def match_song(sp, song, success, fails, user):
                         success += 1
                     break
                 if item == results[-1]:
-                    pprint(results)
                     fails += 1
                     no_match(user, apple_name, apple_artist, apple_id)
         except Exception as e:
             print(e, e.args)
-            fails += 1
+            errors += 1
             no_match(user, apple_name, apple_artist, apple_id)
-    return success, fails
+    return success, fails, errors
 
 
 def add_track(sp,user, spotify_id, apple_name, apple_artist, apple_id, spotify_name):

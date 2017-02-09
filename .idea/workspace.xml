@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tasks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spotify_convert/tasks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="146" column="42" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="42" />
+            <state relative-caret-position="255">
+              <caret line="17" column="146" lean-forward="false" selection-start-line="17" selection-start-column="146" selection-end-line="17" selection-end-column="146" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -44,7 +44,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spotify_convert/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
@@ -182,8 +182,8 @@
         <option value="$PROJECT_DIR$/spotify_convert/templates/spotify_convert/index.html" />
         <option value="$PROJECT_DIR$/spotify_convert/names.txt" />
         <option value="$PROJECT_DIR$/spotify_convert/todo.txt" />
-        <option value="$PROJECT_DIR$/spotify_convert/tasks.py" />
         <option value="$PROJECT_DIR$/spotify_convert/models.py" />
+        <option value="$PROJECT_DIR$/spotify_convert/tasks.py" />
       </list>
     </option>
   </component>
@@ -994,22 +994,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spotify_convert/tasks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="146" column="42" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spotify_convert/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="47" lean-forward="false" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spotify_convert/tasks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="146" lean-forward="false" selection-start-line="17" selection-start-column="146" selection-end-line="17" selection-end-column="146" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
