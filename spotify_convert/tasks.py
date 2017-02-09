@@ -20,7 +20,8 @@ def go(library_url, code):
     tree = load_tree(library_url)
     tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
-    match_apple_to_spotify(tracks, sp)
+    success, fails = match_apple_to_spotify(tracks, sp)
+    send_message("Completed moving songs!", "Moved: " + success + ' songs and Missed: ' + fails + ' songs.', 'mvasiliou94@gmail.com', "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 
@@ -72,20 +73,10 @@ def find_track_info(tracks):
     return tracks_output
 
 
-def spotify_login():
-    username = '12159028126'
-    scope = 'user-library-read user-library-modify'
-    token = util.prompt_for_user_token(username, scope)
-    print(token)
-    if token:
-        sp = spotipy.Spotify(auth = token)
-        return sp
-    else:
-        return None
-
-
 def match_apple_to_spotify(tracks, sp):
     bad_list =[]
+    success = 0
+    fails = 0
     for song in tracks:
         if 'Artist' in song and 'Name' in song and 'Podcast' not in song:
             apple_name = song['Name']
@@ -113,21 +104,24 @@ def match_apple_to_spotify(tracks, sp):
                         spot_name in match_name_split) and \
                         match_artist in spot_artists:
 
-                        add_track(track_id, apple_name, apple_artist, sp)
+                        add_track(track_id, apple_name, apple_artist, sp, success)
                         break
                     if item == results[-1]:
+                        fails += 1
                         no_match(apple_name, apple_artist, match_name, match_artist, bad_list)
             except Exception as e:
                 print(e, e.args)
+                fails += 1
                 no_match(apple_name, apple_artist, match_name, match_artist, bad_list)
-    print(bad_list)
+    return success, fails
 
 
-def add_track(track_id, name, artist, sp):
+def add_track(track_id, name, artist, sp, success):
     check = sp.current_user_saved_tracks_contains(tracks = [track_id])[0]
     if check:
         pass
     else:
+        success += 1
         sp.current_user_saved_tracks_add(tracks = [track_id])
         #print('Added track: ' + name.title() + ' by ' + artist.title())
 
@@ -139,3 +133,43 @@ def no_match(name, artist, match_name, match_artist, bad_list = []):
     #no_match_file = open('no_match.csv', 'a', newline = '')
     #no_match_writer = csv.writer(no_match_file)
     #no_match_writer.writerow([name, artist])
+
+
+@app.task
+def send_message(subject, message, recipients, sender_name, sender_email, attachments = [], cc = None,
+                  bcc = None, deliverytime = None, campaign = None, tag = None, dkim = False, testmode = False,
+                  tracking = True, tracking_opens = True, tracking_clicks = True, require_tls = False,
+                  skip_verification = False):
+
+    if type(attachments) is str:
+        attachments = [attachments]
+
+    files = []
+    for file in attachments:
+        files.append(("attachment", open(file)))
+
+    if type(recipients) is str:
+        recipients = [recipients]
+
+    domain_name = "mikevasiliou.com"
+    api_key = os.environ.get('MAILGUN_KEY')
+    return requests.post(
+            "https://api.mailgun.net/v3/" + domain_name + "/messages",
+            auth = ("api", api_key),
+            files = files,
+            data = {"from":sender_name + " <" + sender_email + ">",
+                    "to":recipients,
+                    "cc":cc,
+                    "bcc":bcc,
+                    "subject":subject,
+                    "html":message,
+                    "o:campaign":campaign,
+                    "o:tag":tag,
+                    "o:dkim":dkim,
+                    "o:deliverytime":deliverytime,
+                    "o:testmode":testmode,
+                    "o:tracking":tracking,
+                    "o:tracking-opens":tracking_opens,
+                    "o:tracking-clicks":tracking_clicks,
+                    "o:require-tls":require_tls,
+                    "o:skip_verification":skip_verification})
