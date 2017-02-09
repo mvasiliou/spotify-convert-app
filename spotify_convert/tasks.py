@@ -104,7 +104,8 @@ def match_apple_to_spotify(tracks, sp):
                         spot_name in match_name_split) and \
                         match_artist in spot_artists:
 
-                        add_track(track_id, apple_name, apple_artist, sp, success)
+                        if add_track(track_id, apple_name, apple_artist, sp):
+                            success += 1
                         break
                     if item == results[-1]:
                         fails += 1
@@ -116,14 +117,14 @@ def match_apple_to_spotify(tracks, sp):
     return success, fails
 
 
-def add_track(track_id, name, artist, sp, success):
+def add_track(track_id, name, artist, sp):
     check = sp.current_user_saved_tracks_contains(tracks = [track_id])[0]
     if check:
-        pass
+        return False
     else:
-        success += 1
         sp.current_user_saved_tracks_add(tracks = [track_id])
         #print('Added track: ' + name.title() + ' by ' + artist.title())
+        return True
 
 
 def no_match(name, artist, match_name, match_artist, bad_list = []):
