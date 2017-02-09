@@ -11,7 +11,7 @@ import boto3
 
 
 @app.task
-def go(library_url, code):
+def go(library_url, code, email = False):
     sp_client_id = os.environ.get('CLIENT_ID')
     sp_client_secret = os.environ.get('CLIENT_SECRET')
     callback = helper.get_callback()
@@ -21,7 +21,8 @@ def go(library_url, code):
     tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
     success, fails = match_apple_to_spotify(tracks, sp)
-    send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs.', 'mvasiliou94@gmail.com', "Tune Transfer", 'tunes@mikevasiliou.com')
+    if email:
+        send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs.', email, "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 

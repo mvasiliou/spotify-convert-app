@@ -56,7 +56,8 @@ def submit_form(request):
         if form.is_valid():
             library_url = form.cleaned_data['file_url']
             spotify_code = form.cleaned_data['spotify_code']
-            go.delay(library_url, spotify_code)
+            email = form.cleaned_data['email']
+            go.delay(library_url, spotify_code, email)
             return HttpResponseRedirect('/spotify_convert/')
         else:
             print('Form is not valid')
