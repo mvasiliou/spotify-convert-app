@@ -13,13 +13,14 @@ Redirect Screen after upload
 
 
 tunetransport.com               $10.69
+tracktransfer.com               $10.69
+transfertunes.com               $10.69
+
 tunetransport.io                $32.88
 tunetransfer.io                 $32.88
 transfertunes.io                $32.88
-transfertunes.com               $10.69
 tracktransport.io               $32.88
 tracktransfer.io                $32.88
-tracktransfer.com               $10.69
 transfertracks.io               $32.88
 musicmove.io                    $32.88
 musicmover.io                   $32.88

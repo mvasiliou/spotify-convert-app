@@ -7,31 +7,45 @@ from Music.celery import app
 import requests, os
 import spotify_convert.helper as helper
 import boto3
+from pprint import pprint
+from .models import Spotify_User, Added_Song, Missed_Song
 
 @app.task
 def go(library_url, code, email = False):
-    sp_client_id = os.environ.get('CLIENT_ID')
-    sp_client_secret = os.environ.get('CLIENT_SECRET')
-    callback = helper.get_callback()
-    token, refresh = get_token(code, callback, sp_client_id, sp_client_secret)
-
+    sp = authorize_spotify(code)
+    user = add_user(sp)
     tree = load_tree(library_url)
     tracks = find_track_info(tree)
-    sp = spotipy.Spotify(auth = token)
-    success, fails = match_apple_to_spotify(tracks, sp)
+    success, fails = match_apple_to_spotify(tracks, sp, user)
     if email:
         send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs.', email, "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 
+def add_user(sp):
+    user_id = sp.current_user()['id']
+    user = Spotify_User()
+    user.user_id = user_id
+    user.save()
+    return user
+
+
+def authorize_spotify(code):
+    sp_client_id = os.environ.get('CLIENT_ID')
+    sp_client_secret = os.environ.get('CLIENT_SECRET')
+    callback = helper.get_callback()
+    token, refresh = get_token(code, callback, sp_client_id, sp_client_secret)
+    sp = spotipy.Spotify(auth = token)
+    return sp
+
+
 def get_token(code, callback, client_id, client_secret):
     params = {'grant_type':'authorization_code', 'code':code, 'redirect_uri':callback}
-
     req = requests.post(
             'https://accounts.spotify.com/api/token',
             data = params,
             auth = (client_id, client_secret)
-        )
+    )
     data = req.json()
     token = data['access_token']
     refresh = data['refresh_token']
@@ -39,25 +53,23 @@ def get_token(code, callback, client_id, client_secret):
 
 
 def load_tree(filekey):
-    access_key = os.environ.get('AWS_ACCESS_KEY_ID')
-    secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
-
-    session = boto3.Session(
-            aws_access_key_id = access_key,
-            aws_secret_access_key = secret_key,
-    )
-
-    #s3 = session.resource('s3')
-    s3 = session.client('s3')
-    bucket_name = "spotify-convert"
-    key = filekey.split("/")[-1]
-    out_file = "library.xml"
-    print(key)
-    s3.download_file(bucket_name, key, out_file)
+    out_file = get_library_file(filekey)
     tree = ET.parse(out_file)
     root = tree.getroot()[0]
     tracks = root.find('dict').findall('dict')
     return tracks
+
+
+def get_library_file(filekey):
+    access_key = os.environ.get('AWS_ACCESS_KEY_ID')
+    secret_key = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    session = boto3.Session(aws_access_key_id = access_key, aws_secret_access_key = secret_key)
+    s3 = session.client('s3')
+    bucket_name = "spotify-convert"
+    key = filekey.split("/")[-1]
+    out_file = "library.xml"
+    s3.download_file(bucket_name, key, out_file)
+    return out_file
 
 
 def find_track_info(tracks):
@@ -72,68 +84,74 @@ def find_track_info(tracks):
     return tracks_output
 
 
-def match_apple_to_spotify(tracks, sp):
-    bad_list =[]
+def match_apple_to_spotify(tracks, sp, user):
     success = 0
     fails = 0
     for song in tracks:
-        if 'Artist' in song and 'Name' in song and 'Podcast' not in song:
-            apple_name = song['Name']
-            apple_artist = song['Artist']
-
-
-            match_name = apple_name.lower()
-            match_artist = apple_artist.lower()
-            match_name_split = match_name.split('(')[0]
-            try:
-                results = sp.search(q = 'track:' + apple_name + ' artist:' + apple_artist, type = 'track')
-                results = results['tracks']['items']
-
-                for item in results:
-
-                    spot_name = item['name'].lower()
-                    track_id = item['id']
-
-                    spot_artists = [artist['name'].lower() for artist in item['artists']]
-
-                    if (match_name == spot_name or
-                        match_name in spot_name or
-                        spot_name in match_name or
-                        match_name_split in spot_name or
-                        spot_name in match_name_split) and \
-                        match_artist in spot_artists:
-
-                        if add_track(track_id, apple_name, apple_artist, sp):
-                            success += 1
-                        break
-                    if item == results[-1]:
-                        fails += 1
-                        no_match(apple_name, apple_artist, match_name, match_artist, bad_list)
-            except Exception as e:
-                print(e, e.args)
-                fails += 1
-                no_match(apple_name, apple_artist, match_name, match_artist, bad_list)
+        match_song(sp, song, success, fails, user)
     return success, fails
 
 
-def add_track(track_id, name, artist, sp):
-    check = sp.current_user_saved_tracks_contains(tracks = [track_id])[0]
+def match_song(sp, song, success, fails, user):
+    if 'Artist' in song and 'Name' in song and 'Podcast' not in song:
+        apple_name = song['Name']
+        apple_artist = song['Artist']
+        apple_id = song['Track ID']
+        match_name = apple_name.lower()
+        match_artist = apple_artist.lower()
+        match_name_split = match_name.split('(')[0]
+        try:
+            results = sp.search(q = 'track:' + apple_name + ' artist:' + apple_artist, type = 'track')
+            results = results['tracks']['items']
+
+            for item in results:
+                track_id = item['id']
+                spotify_name = item['name']
+                spot_name = spotify_name.lower()
+                spot_artists = [artist['name'].lower() for artist in item['artists']]
+
+                if (match_name == spot_name or
+                    match_name in spot_name or
+                    spot_name in match_name or
+                    match_name_split in spot_name or
+                    spot_name in match_name_split) and match_artist in spot_artists:
+
+                    if add_track(sp, user, track_id, apple_name, apple_artist, apple_id, spotify_name):
+                        success += 1
+                    break
+                if item == results[-1]:
+                    pprint(results)
+                    fails += 1
+                    no_match(user, apple_name, apple_artist, apple_id)
+        except Exception as e:
+            print(e, e.args)
+            fails += 1
+            no_match(user, apple_name, apple_artist, apple_id)
+    return success, fails
+
+
+def add_track(sp,user, spotify_id, apple_name, apple_artist, apple_id, spotify_name):
+    check = sp.current_user_saved_tracks_contains(tracks = [spotify_id])[0]
     if check:
         return False
-    else:
-        sp.current_user_saved_tracks_add(tracks = [track_id])
-        #print('Added track: ' + name.title() + ' by ' + artist.title())
-        return True
+    sp.current_user_saved_tracks_add(tracks = [spotify_id])
+    added_song = Added_Song(spotify_user = user,
+                            apple_name = apple_name,
+                            apple_artist = apple_artist,
+                            apple_id = apple_id,
+                            spotify_name = spotify_name,
+                            spotify_id = spotify_id)
+    #added_song.save()
+    return True
 
 
-def no_match(name, artist, match_name, match_artist, bad_list = []):
-    bad_list.append((name, artist, match_name, match_artist))
-    print('No Match for: ' + name + ' by ' + artist)
-    print('Attempted to match with: ' + match_name + ' by ' + match_artist)
-    #no_match_file = open('no_match.csv', 'a', newline = '')
-    #no_match_writer = csv.writer(no_match_file)
-    #no_match_writer.writerow([name, artist])
+def no_match(user, apple_name, apple_artist, apple_id):
+    missed_song = Missed_Song(spotify_user = user,
+                              apple_name = apple_name,
+                              apple_artist = apple_artist,
+                              apple_id = apple_id)
 
+    missed_song.save()
 
 @app.task
 def send_message(subject, message, recipients, sender_name, sender_email, attachments = [], cc = None,
