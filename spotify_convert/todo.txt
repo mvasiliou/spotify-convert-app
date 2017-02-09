@@ -1,3 +1,17 @@
+*****************TO-DO*****************
+FAQ Page
+Storing of Added/Missed Songs
+Loading Bar for Upload
+Size of File Display
+API Rate Limiting
+Total Songs Added Box
+Redirect Screen after upload
+
+
+
+
+
+
 tunetransport.com               $10.69
 tunetransport.io                $32.88
 tunetransfer.io                 $32.88
@@ -9,3 +23,4 @@ tracktransfer.com               $10.69
 transfertracks.io               $32.88
 musicmove.io                    $32.88
 musicmover.io                   $32.88
+

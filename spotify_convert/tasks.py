@@ -8,8 +8,6 @@ import requests, os
 import spotify_convert.helper as helper
 import boto3
 
-
-
 @app.task
 def go(library_url, code, email = False):
     sp_client_id = os.environ.get('CLIENT_ID')
@@ -88,7 +86,7 @@ def match_apple_to_spotify(tracks, sp):
             match_artist = apple_artist.lower()
             match_name_split = match_name.split('(')[0]
             try:
-                results = sp.search(q = 'track:' + apple_name + ' ' + apple_name, type = 'track')
+                results = sp.search(q = 'track:' + apple_name + ' artist:' + apple_artist, type = 'track')
                 results = results['tracks']['items']
 
                 for item in results:
