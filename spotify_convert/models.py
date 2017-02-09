@@ -4,26 +4,20 @@ from django.db import models
 from django.db import models
 
 class Added_Song(models.Model):
-    apple_name = models.CharField(blank = False)
-    apple_artist = models.CharField(blank=False)
-    apple_id = models.CharField(blank=False)
-    spotify_name = models.CharField(blank=False)
-    spotify_id = models.CharField(blank=False)
+    apple_name = models.CharField(blank = False, max_length = 200)
+    apple_artist = models.CharField(blank=False, max_length = 200)
+    apple_id = models.CharField(blank=False, max_length = 200)
+    spotify_name = models.CharField(blank=False, max_length = 200)
+    spotify_id = models.CharField(blank=False, max_length = 100)
 
 
 class Missed_Song(models.Model):
-    apple_name = models.CharField(blank=False)
-    apple_artist = models.CharField(blank=False)
-    apple_id = models.CharField(blank=False)
+    apple_name = models.CharField(blank=False, max_length = 200)
+    apple_artist = models.CharField(blank=False, max_length = 200)
+    apple_id = models.CharField(blank=False, max_length = 100)
 
 
 class Spotify_User(models.Model):
-    user_id = models.CharField(blank = False, max_length = 25)
+    user_id = models.CharField(blank = False, max_length = 50)
     added_songs = models.ManyToManyField(Added_Song)
     missed_songs = models.ManyToManyField(Missed_Song)
-
-
-class Document(models.Model):
-    description = models.CharField(max_length=255, blank=True)
-    document = models.FileField(upload_to='documents/')
-    uploaded_at = models.DateTimeField(auto_now_add=True)
