@@ -1,7 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-import csv
 import spotipy
-import spotipy.util as util
 import xml.etree.ElementTree as ET
 from Music.celery import app
 import requests, os

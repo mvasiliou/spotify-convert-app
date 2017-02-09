@@ -5,8 +5,8 @@ from django.db import models
 
 class Spotify_User(models.Model):
     user_id = models.CharField(blank = False, max_length = 25)
-    added_songs = models.ManyToManyField(Added_Songs)
-    missed_songs = models.ManyToManyField(Missed_Songs)
+    added_songs = models.ManyToManyField(Added_Song)
+    missed_songs = models.ManyToManyField(Missed_Song)
 
 class Added_Song(models.Model):
     spotify_user = models.ForeignKey(Spotify_User)
