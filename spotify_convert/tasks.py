@@ -21,7 +21,7 @@ def go(library_url, code):
     tracks = find_track_info(tree)
     sp = spotipy.Spotify(auth = token)
     success, fails = match_apple_to_spotify(tracks, sp)
-    send_message("Completed moving songs!", "Moved: " + success + ' songs and Missed: ' + fails + ' songs.', 'mvasiliou94@gmail.com', "Tune Transfer", 'tunes@mikevasiliou.com')
+    send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs.', 'mvasiliou94@gmail.com', "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 
