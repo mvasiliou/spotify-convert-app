@@ -5,7 +5,7 @@ from Music.celery import app
 import requests, os
 import spotify_convert.helper as helper
 import boto3
-from spotify_convert.models import Spotify_User, Added_Song, Missed_Song
+from spotify_convert.models import SpotifyUser, AddedSong, MissedSong
 
 @app.task
 def go(library_url, code, email = False):
@@ -21,7 +21,7 @@ def go(library_url, code, email = False):
 
 def add_user(sp):
     user_id = sp.current_user()['id']
-    user = Spotify_User()
+    user = SpotifyUser()
     user.user_id = user_id
     user.save()
     return user
@@ -132,7 +132,7 @@ def add_track(sp,user, spotify_id, apple_name, apple_artist, apple_id, spotify_n
     if check:
         return False
     sp.current_user_saved_tracks_add(tracks = [spotify_id])
-    added_song = Added_Song(spotify_user = user,
+    added_song = AddedSong(spotify_user = user,
                             apple_name = apple_name,
                             apple_artist = apple_artist,
                             apple_id = apple_id,
@@ -143,7 +143,7 @@ def add_track(sp,user, spotify_id, apple_name, apple_artist, apple_id, spotify_n
 
 
 def no_match(user, apple_name, apple_artist, apple_id):
-    missed_song = Missed_Song(spotify_user = user,
+    missed_song = MissedSong(spotify_user = user,
                               apple_name = apple_name,
                               apple_artist = apple_artist,
                               apple_id = apple_id)
