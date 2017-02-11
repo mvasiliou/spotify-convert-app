@@ -11,9 +11,8 @@ from django.conf import settings
 
 # Create your views here.
 def index(request):
-    client_id = os.environ.get('CLIENT_ID')
-    if not settings.PRODUCTION:
-        client_id = settings.CLIENT_ID
+    client_id = os.environ.get('SPOTIFY_CLIENT_ID')
+    print(client_id)
     callback = helper.get_callback()
     spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
                   "&response_type=code&redirect_uri=" + \
