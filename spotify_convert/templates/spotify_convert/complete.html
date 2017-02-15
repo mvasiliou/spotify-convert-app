@@ -7,8 +7,10 @@
 {% block body_block %}
     <div class = 'container jumbotron'>
             <div class="row">
-            <p class="col-md-10 col-md-offset-1">Want to convert your iTunes library to Spotify? Login into your Spotify account! </p>
+            <p class="col-md-10 col-md-offset-1">All set! It'll take us a while to process your library, but feel free to check back to see how we're doing. We'll let you know when we're finished by sending you an email! </p>
             </div>
-            <a class = "btn btn-success col-lg-2 col-lg-offset-5" href={{ spotify_url }}>Login to Spotify</a>
     </div>
+{% endblock %}
+{% block script_block %}
+    <script src="{% static 'spotify_convert/js/upload.js' %}"></script>
 {% endblock %}

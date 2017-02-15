@@ -14,7 +14,7 @@
 
 function getSignedRequest(file){
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "/spotify_convert/sign_s3?file_name="+file.name+"&file_type="+file.type);
+  xhr.open("GET", "/spotify_convert/sign_s3/?file_name="+file.name+"&file_type="+file.type);
   xhr.onreadystatechange = function(){
     if(xhr.readyState === 4){
       if(xhr.status === 200){
@@ -22,6 +22,7 @@ function getSignedRequest(file){
         uploadFile(file, response.data, response.url);
       }
       else{
+        console.log(xhr)
         alert("Could not get signed URL.");
       }
     }

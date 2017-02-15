@@ -9,7 +9,7 @@
         <link href="{% static 'spotify_convert/css/bootstrap-fluid-adj.css' %}" rel="stylesheet">
         <link href="{% static 'spotify_convert/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
         {% block style_block %}{% endblock %}
-        <title>{% block title_block %}Convert iTunes to Spotify{% endblock %}</title>
+        <title>{% block title_block %}Tune Transfer{% endblock %}</title>
     </head>
     <body>
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -21,19 +21,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class='navbar-brand' href="/spotify_convert">Convert iTunes to Spotify</a>
+                    <a class='navbar-brand' href="/spotify_convert">Tune Transfer</a>
                 </div>
 
                 <div class='navbar-collapse collapse' id="bs-example-navbar-collapse-1">
                     <ul class='nav navbar-nav'>
                         {% if user.is_authenticated %}
                             <li class='dropdown'>
-                                <a href="#" class='dropdown-toggle' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded='false'>Welcome, {{user.username}}<span class='caret'></span></a>
+                                <a href="#" class='dropdown-toggle' data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded='false'>Welcome, {{user.userprofile.display_name}}<span class='caret'></span></a>
                                 <ul class='dropdown-menu'>
-
+                                <li><a href = '{% url "spotify_convert:convert" %}'>Convert Songs</a></li>
+                                <li><a href = '{% url "spotify_convert:logout" %}'>Log Out</a></li>
                                 </ul>
                             </li>
                         {% else %}
+                        <li class='dropdown'>
+                                <ul class='dropdown-menu'>
+                                <li><a href = '{% url "spotify_convert:login" %}'>Login</a></li>
+                                <li><a href = '{% url "spotify_convert:register" %}'>Register</a></li>
+                                </ul>
+                            </li>
 
                         {% endif %}
                     </ul>

@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Major Version</key><integer>1</integer>
+	<key>Minor Version</key><integer>1</integer>
+	<key>Date</key><date>2016-09-03T19:25:43Z</date>
+	<key>Application Version</key><string>12.4.1.6</string>
+	<key>Features</key><integer>5</integer>
+	<key>Show Content Ratings</key><true/>
+	<key>Music Folder</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/</string>
+	<key>Library Persistent ID</key><string>52E7BB6175DF70A5</string>
+	<key>Tracks</key>
+	<dict>
+		<key>4689</key>
+		<dict>
+			<key>Track ID</key><integer>4689</integer>
+			<key>Name</key><string>15 Step</string>
+			<key>Artist</key><string>Radiohead</string>
+			<key>Album Artist</key><string>Radiohead</string>
+			<key>Album</key><string>In Rainbows</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>8413029</integer>
+			<key>Total Time</key><integer>237293</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>2007</integer>
+			<key>Date Modified</key><date>2016-06-17T22:07:40Z</date>
+			<key>Date Added</key><date>2016-02-26T01:15:11Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3549052223</integer>
+			<key>Play Date UTC</key><date>2016-06-18T03:50:23Z</date>
+			<key>Release Date</key><date>2007-10-10T07:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>3446</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>In Rainbows</string>
+			<key>Sort Artist</key><string>Radiohead</string>
+			<key>Sort Name</key><string>15 Step</string>
+			<key>Persistent ID</key><string>5CD1DA93E1C4C670</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Radiohead/In%20Rainbows/01%2015%20Step.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4691</key>
+		<dict>
+			<key>Track ID</key><integer>4691</integer>
+			<key>Name</key><string>Culture of Fear</string>
+			<key>Artist</key><string>Thievery Corporation</string>
+			<key>Album Artist</key><string>Thievery Corporation</string>
+			<key>Composer</key><string>Garza, Hilton &#38; Haynes</string>
+			<key>Album</key><string>Culture of Fear</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>6894016</integer>
+			<key>Total Time</key><integer>192666</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>2</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2016-06-17T22:08:38Z</date>
+			<key>Date Added</key><date>2016-06-08T17:32:46Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3554126971</integer>
+			<key>Play Date UTC</key><date>2016-08-15T21:29:31Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-06-30T12:54:29Z</date>
+			<key>Release Date</key><date>2011-06-28T07:00:00Z</date>
+			<key>Rating</key><integer>60</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>3574</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Culture of Fear</string>
+			<key>Sort Artist</key><string>Thievery Corporation</string>
+			<key>Sort Name</key><string>Culture of Fear</string>
+			<key>Persistent ID</key><string>E55998B1DCD27639</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Thievery%20Corporation/Culture%20of%20Fear/02%20Culture%20of%20Fear.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4693</key>
+		<dict>
+			<key>Track ID</key><integer>4693</integer>
+			<key>Name</key><string>Heartsigh</string>
+			<key>Artist</key><string>Purity Ring</string>
+			<key>Album Artist</key><string>Purity Ring</string>
+			<key>Album</key><string>Another Eternity</string>
+			<key>Genre</key><string>Electronic</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>7450445</integer>
+			<key>Total Time</key><integer>199142</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2016-06-17T21:46:07Z</date>
+			<key>Date Added</key><date>2015-03-14T01:27:32Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3546978305</integer>
+			<key>Play Date UTC</key><date>2016-05-25T03:45:05Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-08-30T12:57:53Z</date>
+			<key>Release Date</key><date>2015-02-27T08:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>100</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>1957</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>D4D6602475C46117</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Purity%20Ring/Another%20Eternity/01%20Heartsigh.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<dict>
+			<key>Track ID</key><integer>4799</integer>
+			<key>Name</key><string>Thank God for Girls</string>
+			<key>Artist</key><string>Weezer</string>
+			<key>Album Artist</key><string>Weezer</string>
+			<key>Album</key><string>Weezer (White Album)</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>7640026</integer>
+			<key>Total Time</key><integer>210180</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-06-17T21:51:21Z</date>
+			<key>Date Added</key><date>2016-04-10T02:16:59Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>2</integer>
+			<key>Play Date</key><integer>3555091329</integer>
+			<key>Play Date UTC</key><date>2016-08-27T01:22:09Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-07-29T22:15:10Z</date>
+			<key>Release Date</key><date>2016-04-01T07:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>4364</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Weezer (White Album)</string>
+			<key>Sort Artist</key><string>Weezer</string>
+			<key>Sort Name</key><string>Thank God for Girls</string>
+			<key>Persistent ID</key><string>6A6F11227A9AE61D</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Weezer/Weezer%20(White%20Album)/03%20Thank%20God%20for%20Girls.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<dict>
+			<key>Track ID</key><integer>4825</integer>
+			<key>Name</key><string>Hands Reversed</string>
+			<key>Artist</key><string>Tokyo Police Club</string>
+			<key>Album Artist</key><string>Tokyo Police Club</string>
+			<key>Composer</key><string>Graham Wright, Greg Alsop, Josh Hook &#38; Dave Monks</string>
+			<key>Album</key><string>Champ</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>7531707</integer>
+			<key>Total Time</key><integer>199547</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>7</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2010</integer>
+			<key>Date Modified</key><date>2016-06-17T22:08:50Z</date>
+			<key>Date Added</key><date>2016-04-11T01:42:06Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3546345479</integer>
+			<key>Play Date UTC</key><date>2016-05-17T19:57:59Z</date>
+			<key>Skip Date</key><date>2016-04-12T04:43:36Z</date>
+			<key>Release Date</key><date>2010-06-08T07:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Normalization</key><integer>2611</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Champ</string>
+			<key>Sort Artist</key><string>Tokyo Police Club</string>
+			<key>Sort Name</key><string>Hands Reversed</string>
+			<key>Persistent ID</key><string>F6E2A40FFD15C155</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Tokyo%20Police%20Club/Champ/07%20Hands%20Reversed.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4827</key>
+		<dict>
+			<key>Track ID</key><integer>4827</integer>
+			<key>Name</key><string>Desafinado</string>
+			<key>Artist</key><string>Stan Getz &#38; Charlie Byrd</string>
+			<key>Album Artist</key><string>Stan Getz &#38; Charlie Byrd</string>
+			<key>Composer</key><string>Antônio Carlos Jobim &#38; Newton Mendonca</string>
+			<key>Album</key><string>Jazz Samba</string>
+			<key>Genre</key><string>Jazz</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>14043502</integer>
+			<key>Total Time</key><integer>350960</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>8</integer>
+			<key>Year</key><integer>1997</integer>
+			<key>Date Modified</key><date>2016-08-26T00:33:35Z</date>
+			<key>Date Added</key><date>2016-04-15T15:46:51Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3546983583</integer>
+			<key>Play Date UTC</key><date>2016-05-25T05:13:03Z</date>
+			<key>Skip Date</key><date>2016-04-26T02:25:27Z</date>
+			<key>Release Date</key><date>1997-01-01T00:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>100</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Loved</key><true/>
+			<key>Normalization</key><integer>980</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Jazz Samba</string>
+			<key>Sort Artist</key><string>Stan Getz &#38; Charlie Byrd</string>
+			<key>Sort Name</key><string>Desafinado</string>
+			<key>Persistent ID</key><string>E4700B8C13EB7636</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Stan%20Getz%20&#38;%20Charlie%20Byrd/Jazz%20Samba/01%20Desafinado.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4829</key>
+		<dict>
+			<key>Track ID</key><integer>4829</integer>
+			<key>Name</key><string>Kline</string>
+			<key>Artist</key><string>Speelburg</string>
+			<key>Album Artist</key><string>Speelburg</string>
+			<key>Composer</key><string>Noah Sacre</string>
+			<key>Album</key><string>Kline &#38; Aubrey - EP</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>11121415</integer>
+			<key>Total Time</key><integer>321840</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>5</integer>
+			<key>Year</key><integer>2014</integer>
+			<key>Date Modified</key><date>2016-06-17T21:47:52Z</date>
+			<key>Date Added</key><date>2016-04-15T16:31:53Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>3</integer>
+			<key>Play Date</key><integer>3555103155</integer>
+			<key>Play Date UTC</key><date>2016-08-27T04:39:15Z</date>
+			<key>Skip Date</key><date>2016-05-02T02:27:30Z</date>
+			<key>Release Date</key><date>2014-12-05T08:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>100</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>1983</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Kline &#38; Aubrey - EP</string>
+			<key>Sort Artist</key><string>Speelburg</string>
+			<key>Sort Name</key><string>Kline</string>
+			<key>Persistent ID</key><string>AA2C45951D6096D1</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Speelburg/Kline%20&#38;%20Aubrey%20-%20EP/01%20Kline.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4831</key>
+		<dict>
+			<key>Track ID</key><integer>4831</integer>
+			<key>Name</key><string>Worldwide Choppers (feat. Busta Rhymes, Ceza, D-Loc, JL B.Hood, Twista, Twisted Insane, Uso &#38; Yelawolf)</string>
+			<key>Artist</key><string>Tech N9ne</string>
+			<key>Album Artist</key><string>Tech N9ne</string>
+			<key>Composer</key><string>Tech N9ne</string>
+			<key>Album</key><string>Worldwide Choppers (feat. Busta Rhymes, Ceza, D-Loc, JL B.Hood, Twista, Twisted Insane, Uso &#38; Yelawolf) - Single</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>11484398</integer>
+			<key>Total Time</key><integer>326453</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>1</integer>
+			<key>Year</key><integer>2011</integer>
+			<key>Date Modified</key><date>2016-06-17T21:48:20Z</date>
+			<key>Date Added</key><date>2016-04-16T01:25:59Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3547139868</integer>
+			<key>Play Date UTC</key><date>2016-05-27T00:37:48Z</date>
+			<key>Skip Date</key><date>2016-05-25T01:24:01Z</date>
+			<key>Release Date</key><date>2011-05-31T07:00:00Z</date>
+			<key>Rating</key><integer>80</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>5986</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Worldwide Choppers (feat. Busta Rhymes, Ceza, D-Loc, JL B.Hood, Twista, Twisted Insane, Uso &#38; Yelawolf) - Single</string>
+			<key>Sort Artist</key><string>Tech N9ne</string>
+			<key>Sort Name</key><string>Worldwide Choppers (feat. Busta Rhymes, Ceza, D-Loc, JL B.Hood, Twista, Twisted Insane, Uso &#38; Yelawolf)</string>
+			<key>Persistent ID</key><string>846D29D7BFADC228</string>
+			<key>Explicit</key><true/>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Tech%20N9ne/Worldwide%20Choppers%20(feat.%20Busta%20Rhymes,%20Ceza,%20D-Loc,%20JL%20B.Hood,%20Twista,%20Twisted%20Insane,%20Uso%20&#38;%20Yelawolf)%20-%20Single/01%20Worldwide%20Choppers%20(feat.%20Busta%20Rhymes,%20Ceza,%20D-Loc,%20JL%20B.Hood,%20Twista,%20Twisted%20Insane,%20Uso%20&#38;%20Yelawolf).m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4833</key>
+		<dict>
+			<key>Track ID</key><integer>4833</integer>
+			<key>Name</key><string>This Could Be Us</string>
+			<key>Artist</key><string>Rae Sremmurd</string>
+			<key>Album Artist</key><string>Rae Sremmurd</string>
+			<key>Composer</key><string>M. Williams, A.Brown, K. Brown &#38; M. Middlebrooks</string>
+			<key>Album</key><string>SremmLife</string>
+			<key>Genre</key><string>Hip-Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>7476775</integer>
+			<key>Total Time</key><integer>206306</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>5</integer>
+			<key>Track Count</key><integer>11</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2016-06-17T21:46:50Z</date>
+			<key>Date Added</key><date>2015-04-04T03:50:25Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Magical Sound!</string>
+			<key>Play Count</key><integer>22</integer>
+			<key>Play Date</key><integer>3552659733</integer>
+			<key>Play Date UTC</key><date>2016-07-29T21:55:33Z</date>
+			<key>Skip Count</key><integer>3</integer>
+			<key>Skip Date</key><date>2016-07-28T12:58:32Z</date>
+			<key>Release Date</key><date>2015-01-06T08:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>4891</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>76F2C2FC63404F88</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Rae%20Sremmurd/SremmLife/05%20This%20Could%20Be%20Us.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4835</key>
+		<dict>
+			<key>Track ID</key><integer>4835</integer>
+			<key>Name</key><string>Throw Sum Mo (feat. Nicki Minaj &#38; Young Thug)</string>
+			<key>Artist</key><string>Rae Sremmurd</string>
+			<key>Album Artist</key><string>Rae Sremmurd</string>
+			<key>Composer</key><string>K. Coby, A.Brown, K. Brown, J.Felton, J.Williams &#38; O. Maraj</string>
+			<key>Album</key><string>SremmLife</string>
+			<key>Genre</key><string>Hip-Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>9108626</integer>
+			<key>Total Time</key><integer>260453</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>11</integer>
+			<key>Year</key><integer>2015</integer>
+			<key>Date Modified</key><date>2016-07-28T05:23:53Z</date>
+			<key>Date Added</key><date>2015-04-04T03:50:25Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Magical Sound!</string>
+			<key>Play Count</key><integer>24</integer>
+			<key>Play Date</key><integer>3555083625</integer>
+			<key>Play Date UTC</key><date>2016-08-26T23:13:45Z</date>
+			<key>Skip Date</key><date>2016-04-17T03:37:52Z</date>
+			<key>Release Date</key><date>2015-01-06T08:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>1745</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>50E134C0DC4F1627</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Rae%20Sremmurd/SremmLife/08%20Throw%20Sum%20Mo%20(feat.%20Nicki%20Minaj%20&#38;%20Young%20Thug).m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4837</key>
+		<dict>
+			<key>Track ID</key><integer>4837</integer>
+			<key>Name</key><string>Aquaberry Dolphin (Ft. Mac Miller)</string>
+			<key>Artist</key><string>Riff Raff</string>
+			<key>Album Artist</key><string>Riff Raff</string>
+			<key>Album</key><string>Neon Icon</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>2329604</integer>
+			<key>Total Time</key><integer>134739</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Year</key><integer>2014</integer>
+			<key>Date Modified</key><date>2016-06-26T19:55:41Z</date>
+			<key>Date Added</key><date>2015-04-04T03:50:25Z</date>
+			<key>Bit Rate</key><integer>128</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>wWw.RGF.iS
+twitter.com/RapGodFathers</string>
+			<key>Play Date</key><integer>3547395790</integer>
+			<key>Play Date UTC</key><date>2016-05-29T23:43:10Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>2253</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>9304B1FAE7E4ED77</string>
+			<key>Track Type</key><string>File</string>
+			<key>Purchased</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Music/Riff%20Raff/Neon%20Icon/09%20Aquaberry%20Dolphin%20(Ft.%20Mac%20Miller).mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4839</key>
+		<dict>
+			<key>Track ID</key><integer>4839</integer>
+			<key>Name</key><string>Get It</string>
+			<key>Artist</key><string>Run The Jewels</string>
+			<key>Album Artist</key><string>Run The Jewels</string>
+			<key>Composer</key><string>El-P</string>
+			<key>Album</key><string>Run The Jewels</string>
+			<key>Grouping</key><string>Fool's Gold Records</string>
+			<key>Genre</key><string>Hip Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>6487645</integer>
+			<key>Total Time</key><integer>179999</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Year</key><integer>2014</integer>
+			<key>Date Modified</key><date>2016-07-28T05:23:57Z</date>
+			<key>Date Added</key><date>2015-04-04T03:50:25Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Direct Download via @DJBooth</string>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3548736684</integer>
+			<key>Play Date UTC</key><date>2016-06-14T12:11:24Z</date>
+			<key>Skip Date</key><date>2016-04-04T17:29:09Z</date>
+			<key>Release Date</key><date>2014-09-16T07:00:00Z</date>
+			<key>Rating</key><integer>60</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>4521</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>038D6C6F391576F8</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Run%20The%20Jewels/Run%20The%20Jewels/08%20Get%20It.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4841</key>
+		<dict>
+			<key>Track ID</key><integer>4841</integer>
+			<key>Name</key><string>We Come Alive (feat. Son Little)</string>
+			<key>Artist</key><string>RJD2</string>
+			<key>Album Artist</key><string>RJD2</string>
+			<key>Album</key><string>Dame Fortune</string>
+			<key>Genre</key><string>Hip Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>9744635</integer>
+			<key>Total Time</key><integer>274002</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>6</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-06-17T21:46:59Z</date>
+			<key>Date Added</key><date>2016-04-18T15:36:44Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3546987399</integer>
+			<key>Play Date UTC</key><date>2016-05-25T06:16:39Z</date>
+			<key>Skip Date</key><date>2016-05-26T18:57:05Z</date>
+			<key>Release Date</key><date>2016-03-25T07:00:00Z</date>
+			<key>Rating</key><integer>80</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>4370</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Dame Fortune</string>
+			<key>Sort Artist</key><string>RJD2</string>
+			<key>Sort Name</key><string>We Come Alive (feat. Son Little)</string>
+			<key>Persistent ID</key><string>90C36CB3019CD5FA</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/RJD2/Dame%20Fortune/06%20We%20Come%20Alive%20(feat.%20Son%20Little).m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4843</key>
+		<dict>
+			<key>Track ID</key><integer>4843</integer>
+			<key>Name</key><string>Saboteur (feat. Phonte Coleman)</string>
+			<key>Artist</key><string>RJD2</string>
+			<key>Album Artist</key><string>RJD2</string>
+			<key>Album</key><string>Dame Fortune</string>
+			<key>Genre</key><string>Hip Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>8293033</integer>
+			<key>Total Time</key><integer>239469</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>8</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-06-17T21:46:58Z</date>
+			<key>Date Added</key><date>2016-04-18T15:36:44Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3548341063</integer>
+			<key>Play Date UTC</key><date>2016-06-09T22:17:43Z</date>
+			<key>Release Date</key><date>2016-03-25T07:00:00Z</date>
+			<key>Rating</key><integer>80</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>3087</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Dame Fortune</string>
+			<key>Sort Artist</key><string>RJD2</string>
+			<key>Sort Name</key><string>Saboteur (feat. Phonte Coleman)</string>
+			<key>Persistent ID</key><string>C9511F2C8C70DA33</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/RJD2/Dame%20Fortune/08%20Saboteur%20(feat.%20Phonte%20Coleman).m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4845</key>
+		<dict>
+			<key>Track ID</key><integer>4845</integer>
+			<key>Name</key><string>Your Nostalgic Heart and Lung</string>
+			<key>Artist</key><string>RJD2</string>
+			<key>Album Artist</key><string>RJD2</string>
+			<key>Album</key><string>Dame Fortune</string>
+			<key>Genre</key><string>Hip Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>10298019</integer>
+			<key>Total Time</key><integer>282119</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>9</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-06-17T21:47:01Z</date>
+			<key>Date Added</key><date>2016-04-18T15:36:44Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3552832607</integer>
+			<key>Play Date UTC</key><date>2016-07-31T21:56:47Z</date>
+			<key>Skip Date</key><date>2016-05-24T00:43:20Z</date>
+			<key>Release Date</key><date>2016-03-25T07:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>1369</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Dame Fortune</string>
+			<key>Sort Artist</key><string>RJD2</string>
+			<key>Sort Name</key><string>Your Nostalgic Heart and Lung</string>
+			<key>Persistent ID</key><string>A1A936D0BB91603A</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/RJD2/Dame%20Fortune/09%20Your%20Nostalgic%20Heart%20and%20Lung.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4847</key>
+		<dict>
+			<key>Track ID</key><integer>4847</integer>
+			<key>Name</key><string>Portals Outward</string>
+			<key>Artist</key><string>RJD2</string>
+			<key>Album Artist</key><string>RJD2</string>
+			<key>Album</key><string>Dame Fortune</string>
+			<key>Genre</key><string>Hip Hop/Rap</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>3157769</integer>
+			<key>Total Time</key><integer>80796</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>12</integer>
+			<key>Track Count</key><integer>12</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-06-17T22:07:54Z</date>
+			<key>Date Added</key><date>2016-04-18T15:36:44Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3545669455</integer>
+			<key>Play Date UTC</key><date>2016-05-10T00:10:55Z</date>
+			<key>Skip Date</key><date>2016-04-23T18:42:31Z</date>
+			<key>Release Date</key><date>2016-03-25T07:00:00Z</date>
+			<key>Rating</key><integer>60</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>1524</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Dame Fortune</string>
+			<key>Sort Artist</key><string>RJD2</string>
+			<key>Sort Name</key><string>Portals Outward</string>
+			<key>Persistent ID</key><string>3B2FA059EA262934</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/RJD2/Dame%20Fortune/12%20Portals%20Outward.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4849</key>
+		<dict>
+			<key>Track ID</key><integer>4849</integer>
+			<key>Name</key><string>Àgua De Beber</string>
+			<key>Artist</key><string>Quarteto Jobim Morelenbaum</string>
+			<key>Album Artist</key><string>Quarteto Jobim-Morelenbaum</string>
+			<key>Album</key><string>Quarteto Jobim-Morelenbaum</string>
+			<key>Genre</key><string>Latin</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>5721665</integer>
+			<key>Total Time</key><integer>156502</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Year</key><integer>1999</integer>
+			<key>Date Modified</key><date>2016-06-17T22:07:31Z</date>
+			<key>Date Added</key><date>2016-04-20T15:26:35Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3545144712</integer>
+			<key>Play Date UTC</key><date>2016-05-03T22:25:12Z</date>
+			<key>Release Date</key><date>1999-01-01T00:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>100</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>1903</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>Quarteto Jobim-Morelenbaum</string>
+			<key>Sort Artist</key><string>Quarteto Jobim Morelenbaum</string>
+			<key>Sort Name</key><string>Àgua De Beber</string>
+			<key>Persistent ID</key><string>4CBE47C499562DDD</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Quarteto%20Jobim-Morelenbaum/Quarteto%20Jobim-Morelenbaum/01%20A%CC%80gua%20De%20Beber.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4851</key>
+		<dict>
+			<key>Track ID</key><integer>4851</integer>
+			<key>Name</key><string>Mac Miller - Headaches  Migraines ft. Dave East (Prod By Cardo) (DatPiff Exclusive)</string>
+			<key>Artist</key><string>TreeJay &#38; CLOCKWORKDJ</string>
+			<key>Album</key><string>Smoke Till I'm Dead</string>
+			<key>Genre</key><string>Hip-Hop</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>8251778</integer>
+			<key>Total Time</key><integer>205165</integer>
+			<key>Track Number</key><integer>1</integer>
+			<key>Track Count</key><integer>13</integer>
+			<key>Date Modified</key><date>2016-06-17T21:49:57Z</date>
+			<key>Date Added</key><date>2016-04-21T14:18:23Z</date>
+			<key>Bit Rate</key><integer>320</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Comments</key><string>Downloaded from DatPiff.com</string>
+			<key>Play Count</key><integer>1</integer>
+			<key>Play Date</key><integer>3555102034</integer>
+			<key>Play Date UTC</key><date>2016-08-27T04:20:34Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>60</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Normalization</key><integer>3302</integer>
+			<key>Compilation</key><true/>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Persistent ID</key><string>553E729D8DD43760</string>
+			<key>Track Type</key><string>File</string>
+			<key>Purchased</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Music/Compilations/Smoke%20Till%20I'm%20Dead/01%20Mac%20Miller%20-%20Headaches%20%20Migraines%20ft.%20Dave%20East%20(Prod%20By%20Cardo)%20(DatPiff%20Exclusive).mp3</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+		<key>4853</key>
+		<dict>
+			<key>Track ID</key><integer>4853</integer>
+			<key>Name</key><string>Genghis Khan</string>
+			<key>Artist</key><string>Miike Snow</string>
+			<key>Album Artist</key><string>Miike Snow</string>
+			<key>Album</key><string>iii</string>
+			<key>Genre</key><string>Alternative</string>
+			<key>Kind</key><string>Apple Music AAC audio file</string>
+			<key>Size</key><integer>7563506</integer>
+			<key>Total Time</key><integer>212139</integer>
+			<key>Disc Number</key><integer>1</integer>
+			<key>Disc Count</key><integer>1</integer>
+			<key>Track Number</key><integer>3</integer>
+			<key>Track Count</key><integer>10</integer>
+			<key>Year</key><integer>2016</integer>
+			<key>Date Modified</key><date>2016-06-17T21:42:33Z</date>
+			<key>Date Added</key><date>2016-04-22T15:25:51Z</date>
+			<key>Bit Rate</key><integer>256</integer>
+			<key>Sample Rate</key><integer>44100</integer>
+			<key>Play Date</key><integer>3549710452</integer>
+			<key>Play Date UTC</key><date>2016-06-25T18:40:52Z</date>
+			<key>Skip Count</key><integer>1</integer>
+			<key>Skip Date</key><date>2016-07-29T15:06:39Z</date>
+			<key>Release Date</key><date>2016-03-04T08:00:00Z</date>
+			<key>Rating</key><integer>100</integer>
+			<key>Album Rating</key><integer>80</integer>
+			<key>Album Rating Computed</key><true/>
+			<key>Loved</key><true/>
+			<key>Normalization</key><integer>5760</integer>
+			<key>Artwork Count</key><integer>1</integer>
+			<key>Sort Album</key><string>iii</string>
+			<key>Sort Artist</key><string>Miike Snow</string>
+			<key>Sort Name</key><string>Genghis Khan</string>
+			<key>Persistent ID</key><string>BA530B44B6E63130</string>
+			<key>Track Type</key><string>File</string>
+			<key>Protected</key><true/>
+			<key>Apple Music</key><true/>
+			<key>Location</key><string>file:///Users/michaelvasiliou/Music/iTunes/iTunes%20Media/Apple%20Music/Miike%20Snow/iii/03%20Genghis%20Khan.m4p</string>
+			<key>File Folder Count</key><integer>5</integer>
+			<key>Library Folder Count</key><integer>1</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>

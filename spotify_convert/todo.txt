@@ -1,12 +1,15 @@
 *****************TO-DO*****************
 FAQ Page
-Storing of Added/Missed Songs
+
 Loading Bar for Upload
 Size of File Display
 API Rate Limiting
 Total Songs Added Box
 Redirect Screen after upload
 
+
+*****************DONE*****************
+Storing of Added/Missed Songs
 
 
 

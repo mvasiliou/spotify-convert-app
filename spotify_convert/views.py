@@ -3,28 +3,39 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader, RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import UploadFileForm
-from spotify_convert.tasks import go
+from .forms import UploadFileForm, UserProfileForm, UserForm
+from spotify_convert.tasks import go, get_token
 import json, boto3, os
 import spotify_convert.helper as helper
 from django.conf import settings
+from .models import UserProfile
+import spotipy
+from pprint import pprint
 
 # Create your views here.
 def index(request):
-    client_id = os.environ.get('SPOTIFY_CLIENT_ID')
-    print(client_id)
-    callback = helper.get_callback()
-    spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
-                  "&response_type=code&redirect_uri=" + \
-                  callback + "&scope=user-library-modify+user-library-read"
-    context = {'spotify_url':spotify_url}
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/spotify_convert/convert/')
+    else:
+        client_id = os.environ.get('SPOTIFY_CLIENT_ID')
+        callback = helper.get_callback()
+        spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
+                        "&response_type=code&redirect_uri=" + \
+                        callback + "&scope=user-library-modify+user-library-read"
+        context = {'spotify_url':spotify_url}
+        return render(request, 'spotify_convert/index.html',context)
 
-    if "code" in request.GET:
-        code = request.GET["code"]
-        file_form = UploadFileForm(initial = {'spotify_code':code})
-        context['file_form'] = file_form
-    return render(request, 'spotify_convert/index.html', context)
 
+def convert(request):
+    if request.user.is_authenticated():
+        file_form = UploadFileForm()
+        context = {'file_form': file_form}
+        return render(request, 'spotify_convert/convert.html', context)
+    else:
+        return HttpResponseRedirect('/spotify_convert/register')
+
+def complete(request):
+    return render(request,'spotify_convert/complete.html',{})
 
 def sign_s3(request):
     S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
@@ -50,20 +61,70 @@ def sign_s3(request):
 
 
 def submit_form(request):
-    if request.method == 'POST':
-        form = UploadFileForm(request.POST)
-        if form.is_valid():
-            library_url = form.cleaned_data['file_url']
-            spotify_code = form.cleaned_data['spotify_code']
-            email = form.cleaned_data['email']
-            go.delay(library_url, spotify_code, email)
-            return HttpResponseRedirect('/spotify_convert/')
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+            form = UploadFileForm(request.POST)
+            if form.is_valid():
+                library_url = form.cleaned_data['file_url']
+                go.delay(library_url, request.user)
+                return HttpResponseRedirect('/spotify_convert/complete/')
+            else:
+                print('Form is not valid')
+                print(form.errors)
         else:
-            print('Form is not valid')
-            print(form.errors)
+            form = UploadFileForm()
+        return HttpResponseRedirect('/spotify_convert/complete/')
+
+
+def register(request):
+    registered = False
+    context = {}
+    if request.method == 'POST':
+        profile_form = UserProfileForm(data = request.POST)
+        user_form = UserForm(data = request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            username = user.username
+            password = user.password
+            user.set_password(password)
+            user.save()
+
+            profile = profile_form.save(commit = False)
+            profile.user = user
+            profile.save()
+            registered = True
+
+            user = authenticate(username = username, password = password)
+            if user:
+                login(request, user)
+                return HttpResponseRedirect('/spotify_convert/convert/')
+            else:
+                #Send to a login page if it didn't work later 
+                return HttpResponseRedirect('/spotify_convert/login/')
+        else:
+            print(user_form.errors, profile_form.errors)
     else:
-        form = UploadFileForm()
-    return HttpResponseRedirect('/spotify_convert/')
+        if "code" in request.GET:
+            code = request.GET["code"]
+            token, refresh = get_token(code)
+            sp = spotipy.Spotify(auth = token)
+            data = sp.me()
+            spotify_user_id = data['id']
+            display_name = data['display_name']
+            user_form = UserForm()
+            profile_form = UserProfileForm(initial = {'spotify_token':token,
+                                                      'spotify_refresh':refresh,
+                                                      'spotify_user_id':spotify_user_id,
+                                                      'display_name': display_name})
+            context = {'user_form':user_form,'profile_form': profile_form, 'registered': registered}
+        else:
+            client_id = os.environ.get('SPOTIFY_CLIENT_ID')
+            callback = helper.get_callback()
+            spotify_url = "https://accounts.spotify.com/authorize?client_id=" + client_id + \
+                            "&response_type=code&redirect_uri=" + \
+                            callback + "&scope=user-library-modify+user-library-read"
+            context = {'spotify_url':spotify_url}
+    return render(request, 'spotify_convert/register.html', context)
 
 
 def user_login(request):
@@ -90,5 +151,4 @@ def user_login(request):
 @login_required
 def user_logout(request):
     logout(request)
-
     return HttpResponseRedirect('/spotify_convert/')

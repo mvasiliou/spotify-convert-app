@@ -5,38 +5,31 @@ from Music.celery import app
 import requests, os
 import spotify_convert.helper as helper
 import boto3
-from spotify_convert.models import SpotifyUser, AddedSong, MissedSong
+from spotify_convert.models import UserProfile, AddedSong, MissedSong
+from pprint import pprint
+from .models import User
 
 @app.task
-def go(library_url, code, email = False):
-    sp = authorize_spotify(code)
-    user = add_user(sp)
+def go(library_url, user):
+    sp = spotipy.Spotify(auth = user.userprofile.spotify_token)
     tree = load_tree(library_url)
     tracks = find_track_info(tree)
-    success, fails, errors = match_apple_to_spotify(tracks, sp, user)
-    if email:
-        send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs. Totals Errors: ' + str(errors), email, "Tune Transfer", 'tunes@mikevasiliou.com')
+    success, fails, errors = match_apple_to_spotify(tracks, sp, user.userprofile)
+    send_message("Completed moving songs!", "Moved: " + str(success) + ' songs and Missed: ' + str(fails) + ' songs. Totals Errors: ' + str(errors), user.userprofile.email, "Tune Transfer", 'tunes@mikevasiliou.com')
     return True
 
 
-def add_user(sp):
-    user_id = sp.current_user()['id']
-    user = SpotifyUser()
-    user.user_id = user_id
-    user.save()
-    return user
-
-
 def authorize_spotify(code):
-    sp_client_id = os.environ.get('CLIENT_ID')
-    sp_client_secret = os.environ.get('CLIENT_SECRET')
-    callback = helper.get_callback()
-    token, refresh = get_token(code, callback, sp_client_id, sp_client_secret)
+    token, refresh = get_token(code)
     sp = spotipy.Spotify(auth = token)
     return sp
 
 
-def get_token(code, callback, client_id, client_secret):
+def get_token(code):
+    client_id = os.environ.get('SPOTIFY_CLIENT_ID')
+    client_secret = os.environ.get('SPOTIFY_CLIENT_SECRET')
+    print(client_secret)
+    callback = helper.get_callback()
     params = {'grant_type':'authorization_code', 'code':code, 'redirect_uri':callback}
     req = requests.post(
             'https://accounts.spotify.com/api/token',
@@ -138,7 +131,7 @@ def add_track(sp,user, spotify_id, apple_name, apple_artist, apple_id, spotify_n
                             apple_id = apple_id,
                             spotify_name = spotify_name,
                             spotify_id = spotify_id)
-    #added_song.save()
+    added_song.save()
     return True
 
 

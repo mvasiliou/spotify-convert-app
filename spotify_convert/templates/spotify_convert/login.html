@@ -6,7 +6,7 @@
             {% if user.is_authenticated %}
             <p class = 'col-sm-offset-4 col-sm-4'>Oops! you're already logged in!</p>
             {% else %}
-            <h1 class = 'col-sm-offset-4 col-sm-4'>Login to Digital Data</h1>
+            <h1 class = 'col-sm-offset-4 col-sm-4'>Login to Tune Transfer</h1>
             <form class = 'col-sm-offset-4 col-sm-4 form-group' id="login_form" method="post" action="/social/login/">
                 {% csrf_token %}
                 Username: <input class = 'form-control' type="text" name="username" value="" size="50" />

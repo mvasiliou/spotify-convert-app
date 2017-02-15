@@ -11,8 +11,8 @@ try:
                     CELERY_RESULT_BACKEND=os.environ['REDIS_URL'])
 except:
     app = Celery('Music',
-                 broker = 'amqp://',
-                 backend = 'amqp://',
+                 broker = 'redis://localhost:6379',
+                 backend = 'redis://localhost:6379',
                  include = ['Music.tasks', 'spotify_convert.tasks'])
 
 # Optional configuration, see the application user guide.

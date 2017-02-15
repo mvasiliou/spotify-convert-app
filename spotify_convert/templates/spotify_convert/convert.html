@@ -1,0 +1,35 @@
+{% extends 'spotify_convert/base.html' %}
+{% block style_block %}
+    {% load staticfiles %}
+    <link href="{% static 'spotify_convert/css/carousel.css' %}" rel="stylesheet">
+{% endblock %}
+{% block title_block %}Convert{% endblock %}
+{% block body_block %}
+    <div class = 'container jumbotron'>
+            <div class="row">
+            <p class="col-md-10 col-md-offset-1">Upload your XML iTunes
+                Library file! Depending on how many songs you have, this may take several minutes to half an hour. Feel free
+                to close this tab and let us work in the background!</p>
+            </div>
+            {% if file_form %}
+                <div class="row">
+                    <div class='form-group'>
+                        <label for="file_input">Upload your iTunes XML file:</label>
+                        <input class='btn btn-default' type="file" id="file_input"/>
+                    </div>
+                    <div class = 'form-group'>
+                        <form method="POST" action="/spotify_convert/submit_form/" class="form-inline">
+                            {% csrf_token %}
+                            {{ file_form }}
+                            <input class='btn btn-primary form-control' id="submit-button" disabled type="submit" value="Upload Library">
+                        </form>
+                    </div>
+                </div>
+            {% else %}
+                <a class = "btn btn-success col-lg-2 col-lg-offset-5" href={{ spotify_url }}>Login to Spotify</a>
+            {% endif %}
+    </div>
+{% endblock %}
+{% block script_block %}
+    <script src="{% static 'spotify_convert/js/upload.js' %}"></script>
+{% endblock %}
