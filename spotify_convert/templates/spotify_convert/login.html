@@ -7,7 +7,7 @@
             <p class = 'col-sm-offset-4 col-sm-4'>Oops! you're already logged in!</p>
             {% else %}
             <h1 class = 'col-sm-offset-4 col-sm-4'>Login to Tune Transfer</h1>
-            <form class = 'col-sm-offset-4 col-sm-4 form-group' id="login_form" method="post" action="/social/login/">
+            <form class = 'col-sm-offset-4 col-sm-4 form-group' id="login_form" method="post" action="/spotify_convert/login/">
                 {% csrf_token %}
                 Username: <input class = 'form-control' type="text" name="username" value="" size="50" />
                 <br />

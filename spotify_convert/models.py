@@ -7,6 +7,7 @@ class UserProfile(models.Model):
     spotify_user_id = models.CharField(blank = False, max_length = 500)
     spotify_token = models.CharField(blank = False, max_length = 500)
     spotify_refresh = models.CharField(blank = False, max_length = 500)
+    spotify_expires_at = models.DateTimeField(blank = False)
     display_name = models.CharField(blank = False, max_length = 500)
     def __str__(self):
         return str(self.email)

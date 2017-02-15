@@ -39,7 +39,8 @@ def get_token(code):
     data = req.json()
     token = data['access_token']
     refresh = data['refresh_token']
-    return token, refresh
+    expires_in = data['expires_in']
+    return token, refresh, expires_in
 
 
 def load_tree(filekey):

@@ -11,6 +11,7 @@ from django.conf import settings
 from .models import UserProfile
 import spotipy
 from pprint import pprint
+import datetime
 
 # Create your views here.
 def index(request):
@@ -23,7 +24,7 @@ def index(request):
                         "&response_type=code&redirect_uri=" + \
                         callback + "&scope=user-library-modify+user-library-read"
         context = {'spotify_url':spotify_url}
-        return render(request, 'spotify_convert/index.html',context)
+        return render(request, 'spotify_convert/index.html', context)
 
 
 def convert(request):
@@ -106,17 +107,23 @@ def register(request):
     else:
         if "code" in request.GET:
             code = request.GET["code"]
-            token, refresh = get_token(code)
+            token, refresh, expires_in = get_token(code)
+            expires_at = datetime.datetime.now() + datetime.timedelta(seconds = expires_in)
             sp = spotipy.Spotify(auth = token)
             data = sp.me()
             spotify_user_id = data['id']
             display_name = data['display_name']
-            user_form = UserForm()
-            profile_form = UserProfileForm(initial = {'spotify_token':token,
-                                                      'spotify_refresh':refresh,
-                                                      'spotify_user_id':spotify_user_id,
-                                                      'display_name': display_name})
-            context = {'user_form':user_form,'profile_form': profile_form, 'registered': registered}
+            try:
+                archived_user = UserProfile.objects.get(spotify_user_id = spotify_user_id)
+                return HttpResponseRedirect('/spotify_convert/login')
+            except UserProfile.DoesNotExist as e:
+                user_form = UserForm()
+                profile_form = UserProfileForm(initial = {'spotify_token':token,
+                                                          'spotify_refresh':refresh,
+                                                          'spotify_user_id':spotify_user_id,
+                                                          'spotify_expires_at': expires_at,
+                                                          'display_name': display_name})
+                context = {'user_form':user_form,'profile_form': profile_form, 'registered': registered}
         else:
             client_id = os.environ.get('SPOTIFY_CLIENT_ID')
             callback = helper.get_callback()
