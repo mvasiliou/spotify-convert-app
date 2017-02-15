@@ -9,6 +9,7 @@ class UserProfile(models.Model):
     spotify_refresh = models.CharField(blank = False, max_length = 500)
     spotify_expires_at = models.DateTimeField(blank = False)
     display_name = models.CharField(blank = False, max_length = 500)
+
     def __str__(self):
         return str(self.email)
 
@@ -17,7 +18,6 @@ class AddedSong(models.Model):
     apple_name = models.CharField(blank = False, max_length = 200)
     apple_artist = models.CharField(blank = False, max_length = 200)
     apple_id = models.CharField(blank = False, max_length = 200)
-    spotify_name = models.CharField(blank = False, max_length = 200)
     spotify_id = models.CharField(blank = False, max_length = 100)
 
     def __str__(self):

@@ -124,6 +124,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SPOTIFY_CALLBACK = "https%3A%2F%2Fshrouded-bastion-15188.herokuapp.com%2Fspotify_convert%2Fregister%2F"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
