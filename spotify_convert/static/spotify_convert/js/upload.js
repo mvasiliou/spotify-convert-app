@@ -13,21 +13,26 @@
 })();
 
 function getSignedRequest(file){
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "/spotify_convert/sign_s3/?file_name="+file.name+"&file_type="+file.type);
-  xhr.onreadystatechange = function(){
-    if(xhr.readyState === 4){
-      if(xhr.status === 200){
-        var response = JSON.parse(xhr.responseText);
-        uploadFile(file, response.data, response.url);
+  if (file.type == "text/xml") {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/spotify_convert/sign_s3/?file_name="+file.name+"&file_type="+file.type);
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState === 4){
+        if(xhr.status === 200){
+          var response = JSON.parse(xhr.responseText);
+          uploadFile(file, response.data, response.url);
+        }
+        else{
+          alert("Could not get signed URL.");
+        }
       }
-      else{
-        console.log(xhr)
-        alert("Could not get signed URL.");
-      }
-    }
-  };
-  xhr.send();
+    };
+    xhr.send();
+  }
+  else {
+    alert("Uh-oh! This isn't an XML file.")
+  }
+
 }
 
 function uploadFile(file, s3Data, url){

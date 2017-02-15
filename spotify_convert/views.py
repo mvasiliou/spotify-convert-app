@@ -22,11 +22,16 @@ def convert(request):
         file_form = UploadFileForm()
         context = {'file_form': file_form}
         return render(request, 'spotify_convert/convert.html', context)
-    return HttpResponseRedirect('/spotify_convert/register')
+    return HttpResponseRedirect('/spotify_convert/register/')
 
 
 def complete(request):
-    return render(request,'spotify_convert/complete.html',{})
+    if request.user.is_authenticated():
+        user = request.user
+        added_songs = user.userprofile.addedsong_set.all()
+        missed_songs = user.userprofile.missedsong_set.all()
+        return render(request,'spotify_convert/complete.html',{'added_songs':added_songs, 'missed_songs':missed_songs})
+    return HttpResponseRedirect('/spotify_convert/register/')
 
 
 def sign_s3(request):
@@ -69,7 +74,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/spotify_convert/account/')
+                return HttpResponseRedirect('/spotify_convert/convert/')
             else:
                 return HttpResponse("Your Tune Transfer account is disabled")
         else:

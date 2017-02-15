@@ -31,5 +31,7 @@
     </div>
 {% endblock %}
 {% block script_block %}
-    <script src="{% static 'spotify_convert/js/upload.js' %}"></script>
+    {% if file_form %}
+        <script src="{% static 'spotify_convert/js/upload.js' %}"></script>
+    {% endif %}
 {% endblock %}

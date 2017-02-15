@@ -7,8 +7,27 @@
 {% block body_block %}
     <div class = 'container jumbotron'>
             <div class="row">
-            <p class="col-md-10 col-md-offset-1">All set! It'll take us a while to process your library, but feel free to check back to see how we're doing. We'll let you know when we're finished by sending you an email! </p>
+            <p class="col-md-10 col-md-offset-1">All set! It'll take us a while to process your library,
+                but feel free to check back to see how we're doing. We'll let you know when we're finished by
+                sending you an email! </p>
             </div>
+            {% if added_songs %}
+            Here's all the songs we've added so far!
+            <ul>
+                {% for song in added_songs %}
+                <li>{{ song.apple_name }} by {{ song.apple_artist }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if missed_songs %}
+            We missed these ones :( It might be because the song isn't on Spotify, the name or artist has a strange
+                symbol in it.
+            <ul>
+                {% for song in missed_songs %}
+                <li>{{ song.apple_name }} by {{ song.apple_artist }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
     </div>
 {% endblock %}
 {% block script_block %}
