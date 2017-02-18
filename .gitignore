@@ -1,7 +1,7 @@
 /Music/local_settings.py
 db.sqlite3
 celerybeat-schedule.db
-.idea
+/.idea
 
 
 # Windows image file caches
@@ -53,8 +53,14 @@ Temporary Items
 .apdisk
 
 *.pyc
+
+#Other Files and Directories
+.idea
+dump.rdb
 db.sqlite3
 myvenv
 __pycache__
+/spotify_convert/__pycache__
 local_settings.py
 tokens.txt
+library.xml

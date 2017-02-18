@@ -9,8 +9,10 @@ import os
 
 
 def index(request):
+    #Send to the convert page if logged in
     if request.user.is_authenticated():
         return HttpResponseRedirect('/spotify_convert/convert/')
+    #Otherwise, pass the auth URL so they can login to Spotify
     else:
         spotify_url = helper.generate_spotify_url()
         context = {'spotify_url':spotify_url}
@@ -18,6 +20,7 @@ def index(request):
 
 
 def convert(request):
+    #Pass the file form
     if request.user.is_authenticated():
         file_form = UploadFileForm()
         context = {'file_form': file_form}
@@ -27,6 +30,7 @@ def convert(request):
 
 def complete(request):
     if request.user.is_authenticated():
+        #Pass data on completed songs
         user = request.user
         added_songs = user.userprofile.addedsong_set.all()
         missed_songs = user.userprofile.missedsong_set.all()
@@ -48,7 +52,7 @@ def submit_form(request):
             form = UploadFileForm(request.POST)
             if form.is_valid():
                 library_url = form.cleaned_data['file_url']
-                go.delay(library_url, request.user)
+                go.delay(library_url, request.user.userprofile)
                 return HttpResponseRedirect('/spotify_convert/complete/')
             else:
                 print('Form is not valid')

@@ -4,11 +4,12 @@ import requests, os
 import spotify_convert.convert as convert
 
 @app.task
-def go(library_url, user):
+def go(library_url, profile):
+    out_file = convert.get_library_file(library_url)
     tree = convert.load_tree(library_url)
     tracks = convert.find_track_info(tree)
-    convert.match_apple_to_spotify(tracks, user.userprofile)
-    send_message("Completed moving songs!", "We're all done moving your songs", user.userprofile.email, "Tune Transfer", 'tunes@mikevasiliou.com')
+    convert.match_apple_to_spotify(tracks, profile)
+    send_message("Completed moving songs!", "We're all done moving your songs", profile.email, "Tune Transfer", 'tunes@mikevasiliou.com')
 
 
 @app.task

@@ -6,8 +6,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 import os, requests, datetime
+from django.utils import timezone
 
 
+#Generates signed POST to our S3 bucket
 def get_pre_signed_post(s3_bucket, file_name, file_type):
     s3 = boto3.client('s3')
     presigned_post = s3.generate_presigned_post(
@@ -26,6 +28,7 @@ def get_pre_signed_post(s3_bucket, file_name, file_type):
     return json_output
 
 
+#Sets up the registration form based on authorization info from Spotify
 def setup_reg_forms(request):
     code = request.GET["code"]
     token, refresh, expires_at = get_token(code)
@@ -48,11 +51,14 @@ def setup_reg_forms(request):
         return render(request, 'spotify_convert/register.html', context)
 
 
-def get_token(code):
+#Requests a Token from the Spotify Token Endpoint
+def get_token(code, refresh = False):
     client_id = os.environ.get('SPOTIFY_CLIENT_ID')
     client_secret = os.environ.get('SPOTIFY_CLIENT_SECRET')
     callback = settings.SPOTIFY_CALLBACK
     params = {'grant_type':'authorization_code', 'code':code, 'redirect_uri':callback}
+    if refresh:
+        params = {'grant_type':'refresh_token', 'refresh_token':code, 'redirect_uri':callback}
     req = requests.post(
             'https://accounts.spotify.com/api/token',
             data = params,
@@ -60,20 +66,24 @@ def get_token(code):
     )
     data = req.json()
     token = data['access_token']
-    refresh = data['refresh_token']
     expires_in = data['expires_in']
-    expires_at = datetime.datetime.now() + datetime.timedelta(seconds = expires_in)
+    expires_at = timezone.now() + datetime.timedelta(seconds = expires_in)
+    
+    if refresh:
+        return token, expires_at
+
+    refresh = data['refresh_token']
     return token, refresh, expires_at
 
-
+#Uses the token API endpoint to refresh an expired token and save to UserProfile
 def refresh_token(profile):
-    token, refresh, expires_at = get_token(profile.spotify_refresh)
+    token, expires_at = get_token(profile.spotify_refresh, True)
     profile.spotify_token = token
-    profile.spotify_refresh = refresh
     profile.spotify_expires_at = expires_at
     profile.save()
 
 
+#Creates a new user based on the UserForm and UserProfileForm. Logs the user in.
 def new_user(request):
     profile_form = UserProfileForm(data = request.POST)
     user_form = UserForm(data = request.POST)
@@ -99,12 +109,13 @@ def new_user(request):
         return render(request, 'spotify_convert/register.html', {})
 
 
+#Authorizes a Spotipy object given an auth code
 def authorize_spotify(code):
     token, refresh = get_token(code)
     sp = spotipy.Spotify(auth = token)
     return sp
 
-
+#Uses our callback setting to generate the Spotify auth URL
 def generate_spotify_url():
     client_id = os.environ.get('SPOTIFY_CLIENT_ID')
     callback = settings.SPOTIFY_CALLBACK
