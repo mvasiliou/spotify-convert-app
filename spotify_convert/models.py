@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User,null=True)
     email = models.CharField(max_length = 200, null = False)
@@ -13,6 +14,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return str(self.email)
 
+
 class AddedSong(models.Model):
     spotify_user = models.ForeignKey(UserProfile)
     apple_name = models.CharField(blank = False, max_length = 200)
@@ -22,6 +24,7 @@ class AddedSong(models.Model):
 
     def __str__(self):
         return str(self.apple_name + " by " + self.apple_artist)
+
 
 class MissedSong(models.Model):
     spotify_user = models.ForeignKey(UserProfile)
